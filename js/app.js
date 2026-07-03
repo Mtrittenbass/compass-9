@@ -63,7 +63,8 @@
   function mountBackgrounds() {
     app.querySelectorAll("[data-bg]").forEach((mount) => {
       let t = null;
-      if (mount.dataset.bg === "paths" && window.initPathsBackground) t = window.initPathsBackground(mount);
+      if (mount.dataset.bg === "hills" && window.initHillsBackground) t = window.initHillsBackground(mount);
+      else if (mount.dataset.bg === "paths" && window.initPathsBackground) t = window.initPathsBackground(mount);
       else if (mount.dataset.bg === "beams" && window.initBeamsBackground) t = window.initBeamsBackground(mount, { intensity: mount.dataset.intensity || "strong" });
       if (t) activeBgs.push(t);
     });
@@ -122,9 +123,9 @@
   function renderHome() {
     app.innerHTML = `
       <section class="hero-shader">
-        <div class="bg-mount hero-paths" data-bg="paths"></div>
+        <div class="bg-mount hero-hills" data-bg="hills"></div>
         <div class="hero-overlay">
-          <span class="eyebrow">for every 8th grader · grades 9 to 12</span>
+          <span class="eyebrow">plan your high school path · grades 9 to 12</span>
           <h1 class="hero-title">Your future,<br><span class="foil">mapped from grade 9.</span></h1>
           <p class="hero-lead">${esc(APP_DATA.tagline)}</p>
           <div class="hero-ctas">
@@ -138,7 +139,7 @@
       <section class="home-content viewfade">
         <div class="home-lede reveal">
           <h2>Not a quiz. A plan.</h2>
-          <p>Most 8th graders pick classes blind. Compass 9 works like a college counselor: it finds a direction that fits you, then hands you the exact courses, scores, clubs, and colleges to aim for.</p>
+          <p>Most students pick high school classes blind. Compass 9 works like a college counselor: it finds a direction that fits you, then hands you the exact courses, scores, clubs, and colleges to aim for.</p>
         </div>
 
         <div class="entry-grid reveal-stagger">
@@ -544,7 +545,7 @@
         <div class="about-hero">
           <span class="eyebrow">about</span>
           <h1>Every student deserves a counselor.</h1>
-          <p class="lead">Not every family can hire a $300-an-hour college consultant. Compass 9 puts the same kind of guidance in front of an 8th grader for free: clear, credible, and built for the way they actually think.</p>
+          <p class="lead">Not every family can hire a $300-an-hour college consultant. Compass 9 puts the same kind of guidance in front of any student for free: clear, credible, and built for the way they actually think.</p>
         </div>
 
         <div class="about-photos reveal">
@@ -553,7 +554,7 @@
         </div>
 
         <div class="pillars reveal-stagger">
-          <div class="pillar">${ICONS.ui.target}<h3>Made for 8th graders</h3><p>Written at a 13-14 year-old reading level, without talking down. The goal is a plan they can act on this fall.</p></div>
+          <div class="pillar">${ICONS.ui.target}<h3>Made for students</h3><p>Written in plain, jargon-free language, without talking down. The goal is a plan you can act on right away.</p></div>
           <div class="pillar">${ICONS.ui.salary}<h3>Grounded in real data</h3><p>Salaries from the Bureau of Labor Statistics, sequencing from real course catalogs, colleges ranked by program strength.</p></div>
           <div class="pillar">${ICONS.ui.cap}<h3>Built around real classes</h3><p>Roadmaps follow the way high schools actually sequence courses, so the plan matches what students can really schedule.</p></div>
         </div>
@@ -562,7 +563,7 @@
           <div class="bg-mount" data-bg="beams" data-intensity="medium"></div>
           <div class="beams-band-inner">
             <h2>A plan beats a <span class="foil">panic</span> every time.</h2>
-            <p>Deciding in 8th grade doesn't lock anyone in, it just replaces guesswork with a direction you can adjust. That head start is the whole point.</p>
+            <p>Deciding early doesn't lock anyone in, it just replaces guesswork with a direction you can adjust. That head start is the whole point.</p>
           </div>
         </div>
 
@@ -580,10 +581,10 @@
         <div class="reveal" style="margin-top:var(--sp8)">
           <span class="eyebrow">the founders</span>
           <h2 style="font-size:var(--t4);margin-top:6px">Built by two students who wished this existed.</h2>
-          <p class="lead">We went through course selection without a map. Compass 9 is the tool we wish we'd had in 8th grade.</p>
+          <p class="lead">We went through course selection without a map. Compass 9 is the tool we wish we'd had starting high school.</p>
           <div class="founders">
-            <div class="founder"><div class="founder-avatar">MT</div><div><div class="founder-name">Marcus Trittenbass</div><div class="founder-role">Co-founder</div></div></div>
-            <div class="founder"><div class="founder-avatar">AP</div><div><div class="founder-name">Akshat Porwal</div><div class="founder-role">Co-founder</div></div></div>
+            <div class="founder"><div class="founder-avatar"><img src="assets/marcus.png" alt="Marcus Trittenbass" loading="lazy" onerror="this.remove()" />MT</div><div><div class="founder-name">Marcus Trittenbass</div><div class="founder-role">Co-founder · Bellevue High School</div></div></div>
+            <div class="founder"><div class="founder-avatar"><img src="assets/akshat.png" alt="Akshat Porwal" loading="lazy" onerror="this.remove()" />AP</div><div><div class="founder-name">Akshat Porwal</div><div class="founder-role">Co-founder · Bellevue High School</div></div></div>
           </div>
         </div>
 
