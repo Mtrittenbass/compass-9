@@ -695,3 +695,47 @@ const FIELD_MEDIA = {
   arts:        { img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=70", tint: "#d94f8a" }
 };
 function fieldMedia(key) { return FIELD_MEDIA[key] || { img: "", tint: "#3B6EF5" }; }
+
+/* Per-career photos (Unsplash). If one fails to load it falls back to the
+   field photo, so a career card is never left blank. */
+const CAREER_IMG = {
+  // business
+  "financial-analyst": "1590283603385-17ffb3a7f29f",
+  "accountant-auditor": "1554224155-6726b3ff858f",
+  "financial-manager": "1521737711867-e3b97375f902",
+  "management-consultant": "1552664730-d307ca884978",
+  "market-research-analyst": "1551288049-bebda4e38f71",
+  // medicine
+  "physician-surgeon": "1612349317150-e413f6a5b16d",
+  "registered-nurse": "1576765608535-5f04d1e3f289",
+  "nurse-practitioner": "1559839734-2b71ea197ec2",
+  "health-services-manager": "1519494026892-80bbd2d6fd0d",
+  // engineering
+  "mechanical-engineer": "1581092918056-0c4c3acd3789",
+  "civil-engineer": "1541888946425-d81bb19240f5",
+  "electrical-engineer": "1620283085439-39620a1e21c4",
+  "computer-hardware-engineer": "1518770660439-4636190af475",
+  // cs
+  "software-developer": "1517180102446-f3ece451e9d8",
+  "web-developer": "1547658719-da2b51169166",
+  "qa-analyst": "1555949963-aa79dcee981c",
+  "computer-programmer": "1515879218367-8466d910aaa4",
+  // law
+  "lawyer": "1589829545856-d10d557cf95f",
+  "judge-magistrate": "1505664194779-8beaceb93744",
+  "arbitrator-mediator": "1521790361543-f645cf042ec4",
+  // social
+  "psychologist": "1573497019940-1c28c88b4f3e",
+  "economist": "1526304640581-d334cdbbf45e",
+  "survey-researcher": "1543286386-713bdd548da4",
+  // arts
+  "graphic-designer": "1626785774573-4b799315345d",
+  "art-director": "1611532736597-de2d4265fba3",
+  "industrial-designer": "1503602642458-232111445657",
+  "animator": "1616499370260-485b3e5ed653"
+};
+function careerImg(majorKey, careerId) {
+  const id = CAREER_IMG[careerId];
+  const url = id ? "https://images.unsplash.com/photo-" + id + "?auto=format&fit=crop&w=800&q=70" : "";
+  return { img: url, fallback: fieldMedia(majorKey).img, tint: fieldMedia(majorKey).tint };
+}

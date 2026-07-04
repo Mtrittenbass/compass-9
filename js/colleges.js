@@ -62,6 +62,27 @@ const COLLEGES = [
 
 const COLLEGES_BY_ID = COLLEGES.reduce((a, c) => ((a[c.id] = c), a), {});
 
+/* Official domains, used to fetch each school's real logo/emblem. */
+const COLLEGE_DOMAINS = {
+  harvard: "harvard.edu", stanford: "stanford.edu", duke: "duke.edu", cornell: "cornell.edu",
+  gatech: "gatech.edu", michigan: "umich.edu", purdue: "purdue.edu", illinois: "illinois.edu",
+  texas: "utexas.edu", unc: "unc.edu", notredame: "nd.edu", northwestern: "northwestern.edu",
+  washington: "washington.edu", wsu: "wsu.edu", gonzaga: "gonzaga.edu", cincinnati: "uc.edu",
+  syracuse: "syracuse.edu", pitt: "pitt.edu", florida: "ufl.edu", pennstate: "psu.edu",
+  wisconsin: "wisc.edu", maryland: "umd.edu", bc: "bc.edu", georgia: "uga.edu",
+  minnesota: "umn.edu", miami: "miami.edu", alabama: "ua.edu", auburn: "auburn.edu",
+  clemson: "clemson.edu", southcarolina: "sc.edu", arizona: "arizona.edu", uconn: "uconn.edu",
+  fsu: "fsu.edu", lsu: "lsu.edu", tennessee: "utk.edu", kentucky: "uky.edu",
+  louisville: "louisville.edu", olemiss: "olemiss.edu", sdsu: "sdsu.edu", kstate: "k-state.edu",
+  okstate: "okstate.edu", arkansas: "uark.edu"
+};
+
+/** Real logo URL for a college (falls back to its monogram if it fails to load). */
+function collegeLogo(c) {
+  const d = COLLEGE_DOMAINS[c.id];
+  return d ? "https://www.google.com/s2/favicons?sz=128&domain=" + d : "";
+}
+
 /** Top N colleges for a major, ranked by strength score (desc). */
 function topCollegesForMajor(majorKey, n = 5) {
   return COLLEGES

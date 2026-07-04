@@ -247,7 +247,10 @@
             return `
             <article class="match-card">
               <div class="match-rank">${i + 1}</div>
-              ${iconFor(m.key)}
+              <div class="match-thumb" style="--tint:${fieldMedia(m.key).tint}">
+                ${iconFor(m.key)}
+                <img src="${fieldMedia(m.key).img}" alt="" loading="lazy" onerror="this.remove()" />
+              </div>
               <div class="match-body">
                 <h3>${esc(m.name)}</h3>
                 <p class="match-desc">${esc(m.short)}</p>
@@ -308,8 +311,13 @@
         </div>
         <h3 class="list-title">Careers in this field</h3>
         <div class="career-grid reveal-stagger">
-          ${major.careers.map((c) => `
+          ${major.careers.map((c) => {
+            const cm = careerImg(major.key, c.id);
+            return `
             <button class="career-card" data-go="#/results/${major.key}/${c.id}">
+              <div class="career-cover" style="--tint:${cm.tint}">
+                <img src="${cm.img || cm.fallback}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${cm.fallback}'" />
+              </div>
               <h3>${esc(c.title)}</h3>
               <p class="career-short">${esc(c.short)}</p>
               <div class="career-stats">
@@ -317,7 +325,8 @@
                 <span class="stat"><span class="stat-label">Hours</span><span class="stat-val">${esc(c.hours)}</span></span>
               </div>
               <span class="career-cta">See the roadmap →</span>
-            </button>`).join("")}
+            </button>`;
+          }).join("")}
         </div>
       </section>`;
   }
@@ -347,7 +356,7 @@
       return `
       <div class="college" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}">
         <span class="college-rank">0${i + 1}</span>
-        <div class="crest">${esc(c.mono)}</div>
+        <div class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></div>
         <div class="college-info">
           <div class="college-name">${esc(c.name)}</div>
           <div class="college-meta">${esc(c.city)}</div>
@@ -477,7 +486,7 @@
         .map(([k]) => `<span class="xtag">${esc(getMajor(k).name)}</span>`).join("");
       return `
       <div class="xcollege" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}">
-        <div class="crest">${esc(c.mono)}</div>
+        <div class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></div>
         <div>
           <div class="xcollege-name">${esc(c.short)}</div>
           <div class="xcollege-meta">${esc(c.city)}</div>
@@ -512,21 +521,22 @@
      ===================================================================== */
   function renderHow() {
     const steps = [
-      { icon: ICONS.ui.quiz, h: "We read interest and strength, not just interest.", p: "The quiz mixes RIASEC-style interest questions (\"which sounds more interesting?\") with strength questions (\"which assignment do you do best on?\"). Each answer adds points across the seven fields, so your top matches reflect both what you like and where you shine." },
-      { icon: ICONS.ui.salary, h: "Every salary is real, from the government.", p: "Pay figures come from the U.S. Bureau of Labor Statistics: national medians, most recent available. We show ranges where BLS publishes them, and note that pay usually runs higher in big cities and tech hubs." },
-      { icon: ICONS.ui.map, h: "The roadmap respects real prerequisites.", p: "AP suggestions are sequenced the way high schools actually schedule them, you can't take AP Calc BC before AB, or AP Bio before Chemistry. The order is standard for most public high schools; exact prereqs should be confirmed against your school's catalog." },
-      { icon: ICONS.ui.cap, h: "Colleges are matched by program reputation.", p: "For each field we rank strong undergraduate programs and show them in their own school colors. It's inspiration for where to aim, admissions depend on far more than one list." }
+      { icon: ICONS.ui.quiz, img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=70", h: "We read interest and strength, not just interest.", p: "The quiz mixes RIASEC-style interest questions (\"which sounds more interesting?\") with strength questions (\"which assignment do you do best on?\"). Each answer adds points across the seven fields, so your top matches reflect both what you like and where you shine." },
+      { icon: ICONS.ui.salary, img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=70", h: "Every salary is real, from the government.", p: "Pay figures come from the U.S. Bureau of Labor Statistics: national medians, most recent available. We show ranges where BLS publishes them, and note that pay usually runs higher in big cities and tech hubs." },
+      { icon: ICONS.ui.map, img: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=600&q=70", h: "The roadmap respects real prerequisites.", p: "AP suggestions are sequenced the way high schools actually schedule them, you can't take AP Calc BC before AB, or AP Bio before Chemistry. The order is standard for most public high schools; exact prereqs should be confirmed against your school's catalog." },
+      { icon: ICONS.ui.cap, img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=70", h: "Colleges are matched by program reputation.", p: "For each field we rank strong undergraduate programs and show them in their own school colors. It's inspiration for where to aim, admissions depend on far more than one list." }
     ];
     app.innerHTML = `
       <section class="method viewfade">
         <span class="eyebrow">how it works</span>
         <h1>The method behind the plan.</h1>
-        <p class="lead">Compass 9 is built to be credible enough for a counselor and clear enough for a 13-year-old. Here's what's under the hood.</p>
+        <p class="lead">Compass 9 is built to be credible enough for a counselor and clear enough for a student. Here's what's under the hood.</p>
         <div class="reveal-stagger" style="margin-top:var(--sp6)">
           ${steps.map((s, i) => `
             <div class="method-step">
               <div class="method-idx">0${i + 1}</div>
               <div class="method-body"><h3>${s.icon} ${esc(s.h)}</h3><p>${esc(s.p)}</p></div>
+              <div class="method-photo photo"><img src="${s.img}" alt="" loading="lazy" onerror="this.closest('.method-photo').remove()" /></div>
             </div>`).join("")}
         </div>
         <div class="hub-footer-ctas" style="margin-top:var(--sp7)">
@@ -549,8 +559,8 @@
         </div>
 
         <div class="about-photos reveal">
-          <div class="photo"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=70" alt="Students working together" loading="lazy" onerror="this.closest('.photo').remove()" /></div>
-          <div class="photo"><img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=700&q=70" alt="A university campus" loading="lazy" onerror="this.closest('.photo').remove()" /></div>
+          <div class="photo"><img src="assets/about-1.jpg" alt="College pennants on a wall" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1000&q=70'" /></div>
+          <div class="photo"><img src="assets/about-2.jpg" alt="Students planning their path with a counselor" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=70'" /></div>
         </div>
 
         <div class="pillars reveal-stagger">
@@ -618,7 +628,7 @@
 
     const fileNo = "PF-" + String(Math.abs(hashStr(major.key + career.id)) % 9000 + 1000);
     const collegePills = topCollegesForMajor(major.key, 5).map((c) =>
-      `<span class="d-college" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}"><span class="crest">${esc(c.mono)}</span>${esc(c.short)}</span>`).join("");
+      `<span class="d-college" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}"><span class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></span>${esc(c.short)}</span>`).join("");
 
     app.innerHTML = `
       <section class="plan-wrap viewfade">
