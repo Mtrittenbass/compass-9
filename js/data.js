@@ -137,6 +137,19 @@ const APP_DATA = {
             "Spot patterns and trends in the numbers",
             "Turn findings into reports and recommendations"
           ]
+        },
+        {
+          id: "personal-financial-advisor",
+          title: "Personal Financial Advisor",
+          salaryMedian: 99580,
+          hours: "~40/week, some evenings to meet clients",
+          short: "Helps people plan savings, investments, college, and retirement.",
+          long: "Personal financial advisors guide individuals and families through big money decisions: saving, investing, taxes, college, and retirement. They build a long-term plan and adjust it as life changes.",
+          dayInLife: [
+            "Meet clients to understand their goals",
+            "Build savings and investment plans",
+            "Review and adjust portfolios over time"
+          ]
         }
       ]
     },
@@ -230,6 +243,32 @@ const APP_DATA = {
             "Make sure the facility follows regulations",
             "Improve how the department or clinic runs"
           ]
+        },
+        {
+          id: "pharmacist",
+          title: "Pharmacist",
+          salaryMedian: 136030,
+          hours: "Shift-based; includes some evenings and weekends",
+          short: "The medication expert who fills prescriptions and keeps patients safe.",
+          long: "Pharmacists dispense medications, check for harmful drug interactions, and advise patients on how to take them. It takes a Doctor of Pharmacy degree after college, and it pays well.",
+          dayInLife: [
+            "Review and fill prescriptions accurately",
+            "Check for dangerous drug interactions",
+            "Counsel patients on their medications"
+          ]
+        },
+        {
+          id: "physical-therapist",
+          title: "Physical Therapist",
+          salaryMedian: 99710,
+          hours: "~40/week",
+          short: "Helps people recover movement and strength after injury or illness.",
+          long: "Physical therapists help patients rebuild strength and movement after injuries, surgeries, or illness. It blends science, hands-on care, and coaching, and requires a doctoral degree after college.",
+          dayInLife: [
+            "Assess a patient's movement and pain",
+            "Guide them through recovery exercises",
+            "Track progress and adjust the plan"
+          ]
         }
       ]
     },
@@ -320,6 +359,32 @@ const APP_DATA = {
             "Design and test computer components",
             "Optimize hardware for speed and power use",
             "Work closely with software teams"
+          ]
+        },
+        {
+          id: "aerospace-engineer",
+          title: "Aerospace Engineer",
+          salaryMedian: 130720,
+          hours: "~40/week",
+          short: "Designs aircraft, spacecraft, satellites, and missiles.",
+          long: "Aerospace engineers design and test things that fly, from airplanes and drones to rockets and satellites. It's one of the most advanced engineering fields, heavy on physics and math.",
+          dayInLife: [
+            "Design and simulate flight systems",
+            "Test prototypes and analyze results",
+            "Solve problems in aerodynamics and propulsion"
+          ]
+        },
+        {
+          id: "biomedical-engineer",
+          title: "Biomedical Engineer",
+          salaryMedian: 100730,
+          hours: "~40/week",
+          short: "Designs medical devices, from prosthetics to imaging machines.",
+          long: "Biomedical engineers apply engineering to medicine, designing artificial limbs, pacemakers, imaging machines, and lab equipment. It's a great fit if you like both healthcare and building things.",
+          dayInLife: [
+            "Design medical devices and equipment",
+            "Test for safety and reliability",
+            "Work with doctors on real needs"
           ]
         }
       ]
@@ -413,6 +478,32 @@ const APP_DATA = {
             "Update and maintain existing programs",
             "Test code and fix errors"
           ]
+        },
+        {
+          id: "data-scientist",
+          title: "Data Scientist",
+          salaryMedian: 108020,
+          hours: "~40/week",
+          short: "Finds patterns in huge amounts of data to answer real questions.",
+          long: "Data scientists use code, statistics, and machine learning to pull insights out of massive datasets, the people behind recommendations, forecasts, and the AI tools everyone's talking about.",
+          dayInLife: [
+            "Clean and explore large datasets",
+            "Build models that predict or classify",
+            "Turn results into decisions for the team"
+          ]
+        },
+        {
+          id: "security-analyst",
+          title: "Information Security Analyst",
+          salaryMedian: 120360,
+          hours: "~40/week, some on-call",
+          short: "Defends companies and people from hackers and data breaches.",
+          long: "Information security analysts protect networks and data from cyberattacks. They hunt for weaknesses, respond to breaches, and stay a step ahead of hackers. It's one of the fastest-growing tech fields.",
+          dayInLife: [
+            "Monitor systems for threats and attacks",
+            "Test defenses and fix weak spots",
+            "Respond fast when something breaks in"
+          ]
         }
       ]
     },
@@ -493,6 +584,45 @@ const APP_DATA = {
             "Guide the parties toward an agreement",
             "Write up settlements or decisions"
           ]
+        },
+        {
+          id: "paralegal",
+          title: "Paralegal",
+          salaryMedian: 60970,
+          hours: "~40/week",
+          short: "The legal researcher who keeps cases organized and moving.",
+          long: "Paralegals support lawyers by researching cases, drafting documents, and organizing evidence. It's a way into the legal world without law school, and a great stepping stone if you're considering it.",
+          dayInLife: [
+            "Research laws and past cases",
+            "Draft contracts and legal documents",
+            "Organize evidence and case files"
+          ]
+        },
+        {
+          id: "prosecutor",
+          title: "Prosecutor / District Attorney",
+          salaryMedian: 100000,
+          hours: "40+/week, often more during trials",
+          short: "The lawyer who represents the government and argues criminal cases.",
+          long: "Prosecutors are lawyers who represent the public in criminal cases, deciding what charges to bring and arguing them in court. It's a high-stakes path for people who want to serve justice directly.",
+          dayInLife: [
+            "Review cases and decide on charges",
+            "Prepare witnesses and evidence",
+            "Argue cases in front of a judge and jury"
+          ]
+        },
+        {
+          id: "corporate-lawyer",
+          title: "Corporate Lawyer",
+          salaryMedian: 145000,
+          hours: "40+/week, often long hours at big firms",
+          short: "Advises companies on deals, contracts, and staying within the law.",
+          long: "Corporate lawyers advise businesses on contracts, mergers, and regulations. Instead of courtrooms, much of the work is negotiating deals and reviewing documents. It's one of the higher-paid legal paths.",
+          dayInLife: [
+            "Draft and review business contracts",
+            "Advise on deals and regulations",
+            "Negotiate on behalf of the company"
+          ]
         }
       ]
     },
@@ -571,6 +701,45 @@ const APP_DATA = {
             "Design survey questions and samples",
             "Collect and clean response data",
             "Turn results into clear findings"
+          ]
+        },
+        {
+          id: "political-scientist",
+          title: "Political Scientist",
+          salaryMedian: 132350,
+          hours: "~40/week",
+          short: "Studies governments, elections, and public policy.",
+          long: "Political scientists study how governments and politics work, analyzing elections, policies, and public opinion. They advise campaigns, think tanks, and government agencies. Most roles need graduate school.",
+          dayInLife: [
+            "Research policies and political trends",
+            "Analyze polling and election data",
+            "Advise leaders or write reports"
+          ]
+        },
+        {
+          id: "social-worker",
+          title: "Social Worker",
+          salaryMedian: 58380,
+          hours: "~40/week, sometimes evenings/on-call",
+          short: "Supports people through tough situations and connects them to help.",
+          long: "Social workers help people navigate hard moments, family crises, mental health, poverty, connecting them with resources and support. It's demanding and deeply people-focused work.",
+          dayInLife: [
+            "Meet with individuals and families",
+            "Connect people to services and support",
+            "Advocate for clients' needs"
+          ]
+        },
+        {
+          id: "urban-planner",
+          title: "Urban & Regional Planner",
+          salaryMedian: 81800,
+          hours: "~40/week",
+          short: "Designs how cities and neighborhoods grow and function.",
+          long: "Urban planners shape how communities develop, deciding where housing, parks, transit, and businesses should go. It blends social science, design, and public policy to make cities work better.",
+          dayInLife: [
+            "Study land use and community needs",
+            "Design plans for growth and transit",
+            "Present proposals at public meetings"
           ]
         }
       ]
@@ -662,6 +831,211 @@ const APP_DATA = {
             "Refine motion frame by frame",
             "Collaborate with directors and studios"
           ]
+        },
+        {
+          id: "ux-designer",
+          title: "UX / Product Designer",
+          salaryMedian: 98000,
+          hours: "~40/week",
+          short: "Designs how apps and websites look and feel to use.",
+          long: "UX (user experience) designers shape how digital products work, mapping out screens, buttons, and flows so apps feel simple and intuitive. It blends art, psychology, and tech, and it's in high demand.",
+          dayInLife: [
+            "Sketch and prototype app screens",
+            "Test designs with real users",
+            "Refine the flow so it feels effortless"
+          ]
+        },
+        {
+          id: "architect",
+          title: "Architect",
+          salaryMedian: 93310,
+          hours: "~40/week, more near deadlines",
+          short: "Designs buildings that are beautiful, safe, and functional.",
+          long: "Architects design buildings and spaces, balancing looks, safety, budget, and how people will actually use them. It combines art, engineering, and problem-solving, and requires a professional degree plus licensing.",
+          dayInLife: [
+            "Sketch and model building designs",
+            "Balance beauty, cost, and safety",
+            "Work with engineers and clients"
+          ]
+        }
+      ]
+    },
+
+    /* ===================== EDUCATION & TEACHING ===================== */
+    {
+      key: "education",
+      name: "Education & Teaching",
+      emoji: "🎓",
+      short: "Helping people learn, grow, and reach their potential.",
+      description:
+        "Education is for people who love a subject and love helping others get it. It's a stable, meaningful path with roles from the classroom to running whole programs.",
+      whyFits:
+        "You're patient, you like explaining things, and you get satisfaction from watching someone finally understand.",
+      sat: { low: 1200, high: 1400, note: "Typical for solid education and liberal-arts programs; teaching is more about people skills than test scores." },
+      extracurriculars: [
+        "Educators Rising (future teachers)",
+        "Peer tutoring / homework help",
+        "Coaching, camp counseling, or mentoring",
+        "Key Club or other service clubs"
+      ],
+      apRoadmap: {
+        freshman: [{ name: "AP Human Geography", note: "optional, good first AP" }, { name: "Start peer tutoring" }],
+        sophomore: [{ name: "AP Psychology" }, { name: "AP World History: Modern" }],
+        junior: [
+          { name: "AP English Language" },
+          { name: "AP U.S. History" },
+          { name: "An AP in your future subject", note: "math, science, or history" }
+        ],
+        senior: [
+          { name: "AP English Literature" },
+          { name: "AP U.S. Government and Politics" },
+          { name: "AP Statistics or AP Research" }
+        ]
+      },
+      careers: [
+        {
+          id: "elementary-teacher",
+          title: "Elementary School Teacher",
+          salaryMedian: 63680,
+          hours: "~40/week plus grading; summers off",
+          short: "Teaches young kids everything from reading to first science.",
+          long: "Elementary teachers guide young students through the building blocks of learning, reading, math, and how to be a good classmate. It's demanding, creative, and hugely important work.",
+          dayInLife: ["Plan and teach lessons across subjects", "Support each kid's progress", "Work with parents and other teachers"]
+        },
+        {
+          id: "high-school-teacher",
+          title: "High School Teacher",
+          salaryMedian: 65220,
+          hours: "~40/week plus grading; summers off",
+          short: "Teaches a subject you love to teenagers.",
+          long: "High school teachers specialize in one subject, like math, science, English, or history, and help teens master it while preparing them for college and life. Great for people who love their field and want to share it.",
+          dayInLife: ["Plan and teach subject lessons", "Grade work and give feedback", "Coach, advise, or run a club"]
+        },
+        {
+          id: "school-counselor",
+          title: "School Counselor",
+          salaryMedian: 61710,
+          hours: "~40/week; school-year schedule",
+          short: "Guides students through classes, college, and tough moments.",
+          long: "School counselors help students choose classes, plan for college and careers, and work through personal challenges. If you like the idea behind Compass 9, this is basically that job in real life.",
+          dayInLife: ["Meet students about plans and problems", "Guide course and college choices", "Connect students to support"]
+        },
+        {
+          id: "special-ed-teacher",
+          title: "Special Education Teacher",
+          salaryMedian: 65910,
+          hours: "~40/week plus planning; summers off",
+          short: "Adapts learning so every student can succeed.",
+          long: "Special education teachers work with students who learn differently, adapting lessons and support so each one can thrive. It takes patience, creativity, and a lot of heart.",
+          dayInLife: ["Build custom learning plans", "Adapt lessons for each student", "Coordinate with families and staff"]
+        },
+        {
+          id: "instructional-coordinator",
+          title: "Instructional Coordinator",
+          salaryMedian: 74620,
+          hours: "~40/week",
+          short: "Designs what and how schools teach.",
+          long: "Instructional coordinators shape curriculum and train teachers, deciding what students learn and how. It's a behind-the-scenes leadership role you grow into after classroom experience.",
+          dayInLife: ["Develop curriculum and standards", "Train and support teachers", "Review what's working and improve it"]
+        },
+        {
+          id: "professor",
+          title: "College Professor",
+          salaryMedian: 84380,
+          hours: "Flexible; heavy during research and grading",
+          short: "Teaches and researches a subject at the college level.",
+          long: "Professors teach college courses and often run research in their field. It's the top of the education path, requiring a master's or PhD, and it lets you go deep on a subject you love.",
+          dayInLife: ["Teach and mentor college students", "Research and publish in your field", "Advise students and grade work"]
+        }
+      ]
+    },
+
+    /* ===================== MEDIA & COMMUNICATIONS ===================== */
+    {
+      key: "media",
+      name: "Media & Communications",
+      emoji: "🎬",
+      short: "Telling stories and shaping how the world sees a message.",
+      description:
+        "Media & Communications is for strong writers, talkers, and creators who want to inform, persuade, and entertain, across news, marketing, video, and social.",
+      whyFits:
+        "You're a strong communicator who likes creating content, telling stories, and shaping how people see things.",
+      sat: { low: 1250, high: 1440, note: "Typical for competitive journalism, communications, and marketing programs." },
+      extracurriculars: [
+        "School newspaper or yearbook",
+        "Broadcast / video / podcast club",
+        "DECA (marketing) or debate & speech",
+        "Running a social media or content team"
+      ],
+      apRoadmap: {
+        freshman: [{ name: "AP Human Geography", note: "optional" }, { name: "Join the school paper or media team" }],
+        sophomore: [{ name: "AP Psychology" }, { name: "AP World History: Modern" }],
+        junior: [
+          { name: "AP English Language" },
+          { name: "AP U.S. History" },
+          { name: "AP Seminar", note: "builds research + argument" }
+        ],
+        senior: [
+          { name: "AP English Literature" },
+          { name: "AP U.S. Government and Politics" },
+          { name: "AP Research" },
+          { name: "AP Computer Science Principles", note: "optional, for digital media" }
+        ]
+      },
+      careers: [
+        {
+          id: "journalist",
+          title: "Journalist / Reporter",
+          salaryMedian: 57500,
+          hours: "Often irregular; news happens anytime",
+          short: "Investigates and reports the real story behind the news.",
+          long: "Journalists find, verify, and tell true stories, from local news to national investigations. It's fast-paced and vital to democracy, and increasingly digital and multimedia.",
+          dayInLife: ["Chase leads and interview sources", "Verify facts under deadline", "Write and publish the story"]
+        },
+        {
+          id: "pr-specialist",
+          title: "Public Relations Specialist",
+          salaryMedian: 67440,
+          hours: "~40/week, more during a crisis",
+          short: "Shapes and protects the public image of a brand or person.",
+          long: "PR specialists manage how organizations are seen, writing press releases, handling media, and steering the message, especially when something goes wrong. It's strategic, fast, and people-heavy.",
+          dayInLife: ["Write press releases and pitches", "Build relationships with media", "Manage the message in a crisis"]
+        },
+        {
+          id: "marketing-manager",
+          title: "Marketing Manager",
+          salaryMedian: 157620,
+          hours: "40+/week",
+          short: "Leads the campaigns that get people to notice and buy.",
+          long: "Marketing managers plan and run the campaigns behind products and brands, ads, social, launches, and more. It blends creativity with data and leadership, and it's one of the higher-paid comms roles.",
+          dayInLife: ["Plan campaigns and brand strategy", "Lead a creative and analytics team", "Track results and adjust"]
+        },
+        {
+          id: "editor",
+          title: "Editor",
+          salaryMedian: 75020,
+          hours: "~40/week, deadline-driven",
+          short: "Shapes writing into its clearest, strongest final form.",
+          long: "Editors plan, review, and polish content, sharpening writing, checking facts, and guiding writers. They set the voice and quality bar for publications, sites, and brands.",
+          dayInLife: ["Assign and plan stories", "Edit for clarity and accuracy", "Coach writers and set the voice"]
+        },
+        {
+          id: "film-video-editor",
+          title: "Film & Video Editor",
+          salaryMedian: 66600,
+          hours: "Project-based; long hours near deadlines",
+          short: "Cuts raw footage into the final story you watch.",
+          long: "Film and video editors assemble raw footage into finished videos, films, ads, YouTube, and shows, choosing every cut, transition, and beat. It's where a lot of the storytelling actually happens.",
+          dayInLife: ["Organize and review footage", "Cut scenes and add sound and effects", "Refine the pacing and final look"]
+        },
+        {
+          id: "technical-writer",
+          title: "Technical Writer",
+          salaryMedian: 80050,
+          hours: "~40/week",
+          short: "Turns complicated things into clear instructions people can follow.",
+          long: "Technical writers explain complex products and processes in plain language, manuals, help articles, and guides. Great for people who write clearly and like making hard things simple.",
+          dayInLife: ["Learn how a product or process works", "Write clear guides and docs", "Test that instructions actually work"]
         }
       ]
     }
@@ -692,7 +1066,9 @@ const FIELD_MEDIA = {
   cs:          { img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=70", tint: "#6a54e0" },
   law:         { img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=70", tint: "#b8862b" },
   social:      { img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=70", tint: "#2f9e8f" },
-  arts:        { img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=70", tint: "#d94f8a" }
+  arts:        { img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=70", tint: "#d94f8a" },
+  education:   { img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=70", tint: "#2b8a72" },
+  media:       { img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=70", tint: "#c0392b" }
 };
 function fieldMedia(key) { return FIELD_MEDIA[key] || { img: "", tint: "#3B6EF5" }; }
 

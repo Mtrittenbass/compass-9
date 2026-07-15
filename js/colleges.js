@@ -62,6 +62,15 @@ const COLLEGES = [
 
 const COLLEGES_BY_ID = COLLEGES.reduce((a, c) => ((a[c.id] = c), a), {});
 
+/* Strengths for the newer fields, merged in without editing every row above. */
+const EXTRA_MAJOR_SCORES = {
+  education: { michigan: 92, wisconsin: 88, texas: 86, illinois: 85, washington: 84, maryland: 84, florida: 84, georgia: 82, minnesota: 82, arizona: 80, kentucky: 80, bc: 80 },
+  media: { northwestern: 96, syracuse: 94, unc: 88, georgia: 86, texas: 86, florida: 84, michigan: 84, maryland: 82, arizona: 82, miami: 82, wisconsin: 82, minnesota: 80 }
+};
+Object.entries(EXTRA_MAJOR_SCORES).forEach(([mk, scores]) => {
+  Object.entries(scores).forEach(([id, sc]) => { if (COLLEGES_BY_ID[id]) COLLEGES_BY_ID[id].majors[mk] = sc; });
+});
+
 /* Official domains, used to fetch each school's real logo/emblem. */
 const COLLEGE_DOMAINS = {
   harvard: "harvard.edu", stanford: "stanford.edu", duke: "duke.edu", cornell: "cornell.edu",

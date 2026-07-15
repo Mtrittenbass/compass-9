@@ -589,12 +589,11 @@
         </div>
 
         <div class="reveal" style="margin-top:var(--sp8)">
-          <span class="eyebrow">the founders</span>
-          <h2 style="font-size:var(--t4);margin-top:6px">Built by two students who wished this existed.</h2>
-          <p class="lead">We went through course selection without a map. Compass 9 is the tool we wish we'd had starting high school.</p>
-          <div class="founders">
-            <div class="founder"><div class="founder-avatar"><img src="assets/marcus.png" alt="Marcus Trittenbass" loading="lazy" onerror="this.remove()" />MT</div><div><div class="founder-name">Marcus Trittenbass</div><div class="founder-role">Co-founder · Bellevue High School</div></div></div>
-            <div class="founder"><div class="founder-avatar"><img src="assets/akshat.png" alt="Akshat Porwal" loading="lazy" onerror="this.remove()" />AP</div><div><div class="founder-name">Akshat Porwal</div><div class="founder-role">Co-founder · Bellevue High School</div></div></div>
+          <span class="eyebrow">the founder</span>
+          <h2 style="font-size:var(--t4);margin-top:6px">Built by a student who wished this existed.</h2>
+          <p class="lead">I went through course selection without a map. Compass 9 is the tool I wish I'd had starting high school.</p>
+          <div class="founders founders-solo">
+            <div class="founder"><div class="founder-avatar"><img src="assets/marcus.png" alt="Marcus Trittenbass" loading="lazy" onerror="this.remove()" />MT</div><div><div class="founder-name">Marcus Trittenbass</div><div class="founder-role">Founder · Bellevue High School</div></div></div>
           </div>
         </div>
 

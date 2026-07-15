@@ -272,6 +272,7 @@ a { color: var(--blue-ink); }
 
 /* founders */
 .founders { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp4); margin-top: var(--sp5); }
+.founders-solo { grid-template-columns: 1fr; max-width: 440px; }
 .founder { display: flex; align-items: center; gap: var(--sp4); background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--sp5); }
 .founder-avatar { position: relative; overflow: hidden; flex: none; width: 60px; height: 60px; border-radius: 50%;
   display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 1.3rem; color: #201603;

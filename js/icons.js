@@ -18,7 +18,9 @@ const ICONS = {
     cs: _svg('<rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M7 10.2l2.6 1.8L7 13.8M12.5 14h4"/>'),
     law: _svg('<path d="M12 3v18M7.5 21h9M4 8h16"/><path d="M7 8l-3 6a3 3 0 0 0 6 0L7 8ZM17 8l-3 6a3 3 0 0 0 6 0L17 8Z"/>'),
     social: _svg('<path d="M12 3a6 6 0 0 0-3.7 10.7c.4.3.7.8.7 1.3V17a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2a1.7 1.7 0 0 1 .7-1.3A6 6 0 0 0 12 3Z"/><path d="M9.5 21h5M10 9.5a2 2 0 0 1 4 0c0 1.2-2 1.8-2 3"/>'),
-    arts: _svg('<path d="M12 3a9 9 0 1 0 1 17.9c1-.1 1.4-1.3.8-2.1-.5-.7-.1-1.8.8-1.8H17a4 4 0 0 0 4-4c0-4.4-4-8-9-8Z"/><circle cx="8" cy="12.5" r="1"/><circle cx="9.8" cy="8.4" r="1"/><circle cx="14.4" cy="8" r="1"/>')
+    arts: _svg('<path d="M12 3a9 9 0 1 0 1 17.9c1-.1 1.4-1.3.8-2.1-.5-.7-.1-1.8.8-1.8H17a4 4 0 0 0 4-4c0-4.4-4-8-9-8Z"/><circle cx="8" cy="12.5" r="1"/><circle cx="9.8" cy="8.4" r="1"/><circle cx="14.4" cy="8" r="1"/>'),
+    education: _svg('<path d="M12 4 2.5 8.6 12 13l9.5-4.4L12 4Z"/><path d="M6.5 10.5v4.4c0 1.1 2.5 2.6 5.5 2.6s5.5-1.5 5.5-2.6v-4.4"/><path d="M21.5 8.6v5.4"/>'),
+    media: _svg('<path d="M3.5 10.5v3a1 1 0 0 0 1 1H7l4.5 3.2V7.3L7 10.5H4.5a1 1 0 0 0-1 0Z"/><path d="M15 8.6a5 5 0 0 1 0 6.8M17.6 6.4a8 8 0 0 1 0 11.2"/>')
   },
 
   /* UI icons */
@@ -38,21 +40,19 @@ const ICONS = {
   }
 };
 
-/** A gold wax-seal SVG at any pixel size (className controls size in CSS). */
+/** Compass 9 emblem: navy compass rose + gold, with an "IX" center. Scales to any size. */
 function sealSVG(className) {
   return `<svg class="${className}" viewBox="0 0 100 100" aria-hidden="true">
-    <defs>
-      <radialGradient id="pfSeal" cx="0.4" cy="0.34" r="0.85">
-        <stop offset="0" stop-color="#f6dd97"/><stop offset="0.55" stop-color="#c99a35"/><stop offset="1" stop-color="#8f6417"/>
-      </radialGradient>
-    </defs>
-    <circle cx="50" cy="50" r="47" fill="#8f6417"/>
-    <circle cx="50" cy="50" r="45" fill="url(#pfSeal)"/>
-    <circle cx="50" cy="50" r="42" fill="none" stroke="#7c5a12" stroke-width="3.5" stroke-dasharray="1.6 4.2" opacity="0.55"/>
-    <circle cx="50" cy="50" r="36.5" fill="none" stroke="#fff3d0" stroke-width="1" opacity="0.5"/>
-    <circle cx="50" cy="50" r="34" fill="none" stroke="#6f5210" stroke-width="1" opacity="0.55"/>
-    <path d="M50 22 L54.4 45.6 L78 50 L54.4 54.4 L50 78 L45.6 54.4 L22 50 L45.6 45.6 Z" fill="#5a3f0e"/>
-    <circle cx="50" cy="50" r="4.4" fill="#fff3d0"/>
-    <circle cx="50" cy="50" r="1.8" fill="#5a3f0e"/>
+    <circle cx="50" cy="50" r="49" fill="#13294d"/>
+    <circle cx="50" cy="50" r="46.5" fill="#f7f3e8"/>
+    <circle cx="50" cy="50" r="46.5" fill="none" stroke="#c9a227" stroke-width="1.4"/>
+    <circle cx="50" cy="50" r="42.5" fill="none" stroke="#13294d" stroke-width="3.4" stroke-dasharray="1 6.1" stroke-linecap="round"/>
+    <path d="M71.2,28.8 L58,50 L71.2,71.2 L50,58 L28.8,71.2 L42,50 L28.8,28.8 L50,42 Z" fill="#c9a227"/>
+    <path d="M50,11 L55.7,44.3 L89,50 L55.7,55.7 L50,89 L44.3,55.7 L11,50 L44.3,44.3 Z" fill="#13294d"/>
+    <path transform="translate(50,26) scale(0.62)" d="M0,-9 C-2.4,-5 -6.5,-4.2 -6.5,0 C-6.5,3.4 -3,4.3 -2,1.8 C-2.2,5.2 -4.2,7.2 0,9.4 C4.2,7.2 2.2,5.2 2,1.8 C3,4.3 6.5,3.4 6.5,0 C6.5,-4.2 2.4,-5 0,-9 Z" fill="#d9b23a"/>
+    <circle cx="50" cy="50" r="14.5" fill="#c9a227"/>
+    <circle cx="50" cy="50" r="12" fill="#13294d"/>
+    <circle cx="50" cy="50" r="12" fill="none" stroke="#e3c35a" stroke-width="0.8"/>
+    <text x="50" y="50" fill="#e3c35a" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="13" text-anchor="middle" dominant-baseline="central" letter-spacing="0.5">IX</text>
   </svg>`;
 }

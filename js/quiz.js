@@ -156,6 +156,30 @@ const QUIZ_QUESTIONS = [
       { text: "\"Inside the design of a hit video game\"", scores: { arts: 2, cs: 1 } },
       { text: "\"Engineers build a record-breaking rocket\"", scores: { engineering: 3 } }
     ]
+  },
+  {
+    id: "q13",
+    type: "interest",
+    text: "Which of these would you enjoy most?",
+    options: [
+      { text: "Explaining a tricky idea until it finally clicks for someone", scores: { education: 3, social: 1 } },
+      { text: "Making a promo video or running a brand's social media", scores: { media: 3, arts: 1 } },
+      { text: "Reporting the real story behind big news", scores: { media: 3, law: 1 } },
+      { text: "Coaching or mentoring younger students", scores: { education: 3 } },
+      { text: "Designing a campaign that gets everyone talking", scores: { media: 2, business: 2 } }
+    ]
+  },
+  {
+    id: "q14",
+    type: "strength",
+    text: "Among your friends, you're the one who...",
+    options: [
+      { text: "Explains the homework so everyone gets it", scores: { education: 3 } },
+      { text: "Makes the posts and videos everyone shares", scores: { media: 3 } },
+      { text: "Wins every argument", scores: { law: 2, media: 1 } },
+      { text: "Organizes the whole group project", scores: { business: 2, education: 1 } },
+      { text: "Comes up with the creative ideas", scores: { arts: 2, media: 1 } }
+    ]
   }
 ];
 
