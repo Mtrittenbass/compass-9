@@ -405,7 +405,8 @@
           <div class="salary-point"><span class="salary-label">Entry level</span><span class="salary-num" data-count="${career.salaryLow}" data-prefix="$">$0</span></div>
           <div class="salary-track"><div class="salary-median">Median ${money(career.salaryMedian)}</div></div>
           <div class="salary-point"><span class="salary-label">Experienced</span><span class="salary-num" data-count="${career.salaryHigh}" data-prefix="$" data-suffix="+">$0</span></div>
-        </div>`;
+        </div>
+        ${career.salaryNote ? `<span class="salary-note">${esc(career.salaryNote)}</span>` : ""}`;
     } else {
       salaryHtml = `
         <div class="salary-single">
@@ -524,30 +525,38 @@
     const fields = APP_DATA.majors;
     const { major } = explorerFilter;
 
-    let list = COLLEGES.slice();
-    if (major) list = list.filter((c) => c.majors[major] != null);
-    if (major) list.sort((a, b) => b.majors[major] - a.majors[major]);
-    else list.sort((a, b) => a.name.localeCompare(b.name));
-
-    const cards = list.map((c) => {
-      const tags = Object.entries(c.majors).sort((a, b) => b[1] - a[1]).slice(0, 3)
-        .map(([k]) => `<span class="xtag">${esc(getMajor(k).name)}</span>`).join("");
+    const bandHTML = ADMIT_BANDS.map((band) => {
+      const list = collegesInBand(band.key, major, 15);
+      if (!list.length) return "";
+      const cards = list.map((c) => `
+        <div class="xcollege" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}">
+          <div class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></div>
+          <div class="xcollege-body">
+            <div class="xcollege-name">${esc(c.short)}</div>
+            <div class="xcollege-meta">${esc(c.city)}</div>
+            <div class="xcollege-nums"><span>${c.acc}% accepted</span><span>SAT ${c.sat[0]}-${c.sat[1]}</span></div>
+          </div>
+        </div>`).join("");
       return `
-      <div class="xcollege" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}">
-        <div class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></div>
-        <div>
-          <div class="xcollege-name">${esc(c.short)}</div>
-          <div class="xcollege-meta">${esc(c.city)}</div>
-          <div class="xcollege-tags">${tags}</div>
+      <div class="band reveal">
+        <div class="band-head">
+          <div>
+            <span class="tier-name tier-${band.key}">${esc(band.label)}</span>
+            <span class="tier-sub">${esc(band.range)}</span>
+          </div>
+          <span class="band-count">${list.length} schools</span>
         </div>
+        <p class="band-blurb">${esc(band.blurb)}</p>
+        <ul class="band-marks">${band.marks.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>
+        <div class="college-grid">${cards}</div>
       </div>`;
     }).join("");
 
     app.innerHTML = `
       <section class="explorer viewfade">
         <span class="eyebrow">the college board</span>
-        <h1>Explore ${COLLEGES.length} schools.</h1>
-        <p class="lead">Filter by field to see who's strong where. Every school is shown in its own colors.</p>
+        <h1>Colleges by how hard they are to get into.</h1>
+        <p class="lead">Every school grouped by acceptance rate, with what each group realistically takes. Filter by field to see who is strong where.</p>
 
         <div class="filter-bar">
           <span class="filter-label">Field</span>
@@ -555,9 +564,8 @@
           ${fields.map((m) => `<button class="chip ${major === m.key ? "active" : ""}" data-filter-major="${m.key}">${esc(m.name)}</button>`).join("")}
         </div>
 
-        ${list.length
-          ? `<div class="college-grid reveal-stagger">${cards}</div>`
-          : `<p class="explorer-empty">No schools match that filter yet.</p>`}
+        ${bandHTML || `<p class="explorer-empty">No schools match that filter yet.</p>`}
+        <p class="fine" style="margin-top:var(--sp5)">Acceptance rates and SAT ranges are approximate and move every year. Use them to build a balanced list, not as a cutoff.</p>
       </section>`;
 
     app.querySelectorAll("[data-filter-major]").forEach((b) =>

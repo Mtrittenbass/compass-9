@@ -568,6 +568,16 @@ a { color: var(--blue-ink); }
 .xtag { font-size: 0.68rem; color: var(--ink-soft); background: var(--paper-inset); border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px; }
 .explorer-empty { text-align: center; color: var(--muted); padding: var(--sp8); }
 
+/* selectivity bands on the Colleges page */
+.band { margin-top: var(--sp7); padding-top: var(--sp6); border-top: 1px solid var(--line); }
+.band-head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp4); flex-wrap: wrap; margin-bottom: 10px; }
+.band-count { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+.band-blurb { color: var(--ink-soft); max-width: 70ch; margin-bottom: 10px; }
+.band-marks { margin: 0 0 var(--sp5); padding-left: 18px; color: var(--ink-soft); font-size: 0.94rem; }
+.band-marks li { margin-bottom: 4px; }
+.xcollege-body { min-width: 0; }
+.xcollege-nums { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; font-family: var(--mono); font-size: 0.68rem; color: var(--gold-ink); }
+
 /* ============================ MY PLAN / DOSSIER ============================ */
 .plan-wrap { max-width: 860px; margin: 0 auto; }
 .plan-empty { text-align: center; padding: var(--sp8) var(--sp5); }

@@ -57,7 +57,24 @@ const COLLEGES = [
   { id: "sdsu",       name: "San Diego State",            short: "San Diego St.", mono: "SD",  city: "San Diego, CA",   c1: "#A6192E", c2: "#000000", tx: "#fff", majors: { business: 80, arts: 80, social: 78 } },
   { id: "kstate",     name: "Kansas State",               short: "Kansas State",  mono: "KS",  city: "Manhattan, KS",   c1: "#512888", c2: "#ffffff", tx: "#fff", majors: { engineering: 78, business: 76 } },
   { id: "okstate",    name: "Oklahoma State",             short: "Oklahoma St.",  mono: "OK",  city: "Stillwater, OK",  c1: "#FF7300", c2: "#000000", tx: "#fff", majors: { engineering: 80, business: 80 } },
-  { id: "arkansas",   name: "University of Arkansas",     short: "Arkansas",      mono: "AR",  city: "Fayetteville, AR", c1: "#9D2235", c2: "#ffffff", tx: "#fff", majors: { business: 80, engineering: 78 } }
+  { id: "arkansas",   name: "University of Arkansas",     short: "Arkansas",      mono: "AR",  city: "Fayetteville, AR", c1: "#9D2235", c2: "#ffffff", tx: "#fff", majors: { business: 80, engineering: 78 } },
+
+  /* Highly selective schools */
+  { id: "mit",        name: "MIT",                        short: "MIT",           mono: "MIT", city: "Cambridge, MA",   c1: "#A31F34", c2: "#8A8B8C", tx: "#fff", majors: { engineering: 99, cs: 99, business: 92, medicine: 88, social: 86 } },
+  { id: "yale",       name: "Yale University",            short: "Yale",          mono: "Y",   city: "New Haven, CT",   c1: "#00356B", c2: "#ffffff", tx: "#fff", majors: { law: 98, social: 95, medicine: 90, arts: 88, business: 88, media: 86 } },
+  { id: "princeton",  name: "Princeton University",       short: "Princeton",     mono: "PU",  city: "Princeton, NJ",   c1: "#EE7F2D", c2: "#000000", tx: "#fff", majors: { social: 94, cs: 93, engineering: 92, law: 92, business: 88 } },
+  { id: "columbia",   name: "Columbia University",        short: "Columbia",      mono: "CU",  city: "New York, NY",    c1: "#002B7F", c2: "#9BCBEB", tx: "#fff", majors: { law: 94, social: 92, media: 90, business: 90, medicine: 90, arts: 86 } },
+  { id: "upenn",      name: "University of Pennsylvania", short: "Penn",          mono: "PN",  city: "Philadelphia, PA", c1: "#011F5B", c2: "#990000", tx: "#fff", majors: { business: 99, medicine: 92, law: 92, social: 90, engineering: 88, cs: 88 } },
+  { id: "jhu",        name: "Johns Hopkins University",   short: "Johns Hopkins", mono: "JH",  city: "Baltimore, MD",   c1: "#002D72", c2: "#ffffff", tx: "#fff", majors: { medicine: 99, engineering: 90, social: 88, cs: 86 } },
+  { id: "cmu",        name: "Carnegie Mellon University", short: "Carnegie Mellon", mono: "CM", city: "Pittsburgh, PA", c1: "#C41230", c2: "#000000", tx: "#fff", majors: { cs: 98, engineering: 94, arts: 92, business: 88 } },
+  { id: "usc",        name: "University of Southern California", short: "USC",    mono: "SC",  city: "Los Angeles, CA", c1: "#990000", c2: "#FFCC00", tx: "#FFCC00", majors: { arts: 94, media: 94, business: 94, engineering: 88, cs: 88, law: 88 } },
+  { id: "nyu",        name: "New York University",        short: "NYU",           mono: "NYU", city: "New York, NY",    c1: "#57068C", c2: "#ffffff", tx: "#fff", majors: { business: 94, arts: 92, media: 90, law: 88, social: 88 } },
+  { id: "berkeley",   name: "UC Berkeley",                short: "Berkeley",      mono: "CAL", city: "Berkeley, CA",    c1: "#003262", c2: "#FDB515", tx: "#FDB515", majors: { cs: 96, engineering: 95, business: 92, social: 92, law: 90 } },
+  { id: "ucla",       name: "UCLA",                       short: "UCLA",          mono: "UC",  city: "Los Angeles, CA", c1: "#2D68C4", c2: "#F2A900", tx: "#fff", majors: { medicine: 92, social: 90, arts: 90, business: 88, cs: 88, media: 86 } },
+  { id: "vanderbilt", name: "Vanderbilt University",      short: "Vanderbilt",    mono: "V",   city: "Nashville, TN",   c1: "#000000", c2: "#866D4B", tx: "#C9A227", majors: { medicine: 92, law: 90, social: 90, business: 88 } },
+  { id: "rice",       name: "Rice University",            short: "Rice",          mono: "R",   city: "Houston, TX",     c1: "#00205B", c2: "#ffffff", tx: "#fff", majors: { engineering: 92, cs: 90, medicine: 88, business: 86 } },
+  { id: "emory",      name: "Emory University",           short: "Emory",         mono: "E",   city: "Atlanta, GA",     c1: "#012169", c2: "#F2A900", tx: "#F2A900", majors: { medicine: 94, business: 88, social: 86, law: 86 } },
+  { id: "washu",      name: "Washington University in St. Louis", short: "WashU", mono: "WU",  city: "St. Louis, MO",   c1: "#A51417", c2: "#007360", tx: "#fff", majors: { medicine: 94, engineering: 88, business: 88, arts: 86 } }
 ];
 
 const COLLEGES_BY_ID = COLLEGES.reduce((a, c) => ((a[c.id] = c), a), {});
@@ -65,7 +82,6 @@ const COLLEGES_BY_ID = COLLEGES.reduce((a, c) => ((a[c.id] = c), a), {});
 /* Extra strengths merged in without editing every row above. Also fills gaps so
    every field has options at each selectivity tier. */
 const EXTRA_MAJOR_SCORES = {
-  education: { michigan: 92, wisconsin: 88, unc: 86, stanford: 86, texas: 86, illinois: 85, northwestern: 84, washington: 84, maryland: 84, florida: 84, georgia: 82, minnesota: 82, arizona: 80, kentucky: 80, bc: 80 },
   media: { northwestern: 96, syracuse: 94, unc: 88, georgia: 86, texas: 86, florida: 84, michigan: 84, maryland: 82, arizona: 82, miami: 82, wisconsin: 82, alabama: 80, minnesota: 80, cincinnati: 78, tennessee: 78 },
   arts: { fsu: 86, maryland: 78, georgia: 78 },
   cs: { minnesota: 84, cincinnati: 80, arizona: 78, tennessee: 76 }
@@ -91,7 +107,12 @@ const COLLEGE_ADMISSIONS = {
   lsu: { acc: 76, sat: [1090, 1310] }, gonzaga: { acc: 78, sat: [1210, 1390] }, arkansas: { acc: 79, sat: [1090, 1310] },
   alabama: { acc: 80, sat: [1080, 1340] }, wsu: { acc: 80, sat: [1050, 1260] }, louisville: { acc: 83, sat: [1080, 1310] },
   cincinnati: { acc: 85, sat: [1150, 1360] }, arizona: { acc: 87, sat: [1100, 1360] }, olemiss: { acc: 88, sat: [1030, 1270] },
-  kentucky: { acc: 95, sat: [1080, 1320] }, kstate: { acc: 95, sat: [1030, 1280] }
+  kentucky: { acc: 95, sat: [1080, 1320] }, kstate: { acc: 95, sat: [1030, 1280] },
+  mit: { acc: 4, sat: [1520, 1580] }, yale: { acc: 4, sat: [1480, 1580] }, princeton: { acc: 4, sat: [1500, 1580] },
+  columbia: { acc: 4, sat: [1490, 1570] }, upenn: { acc: 6, sat: [1500, 1570] }, vanderbilt: { acc: 6, sat: [1500, 1560] },
+  jhu: { acc: 7, sat: [1520, 1560] }, nyu: { acc: 8, sat: [1470, 1570] }, rice: { acc: 8, sat: [1490, 1570] },
+  ucla: { acc: 9, sat: [1400, 1550] }, usc: { acc: 10, sat: [1450, 1540] }, cmu: { acc: 11, sat: [1510, 1560] },
+  berkeley: { acc: 11, sat: [1370, 1540] }, emory: { acc: 11, sat: [1450, 1540] }, washu: { acc: 12, sat: [1500, 1570] }
 };
 Object.entries(COLLEGE_ADMISSIONS).forEach(([id, d]) => {
   const c = COLLEGES_BY_ID[id];
@@ -111,8 +132,55 @@ function collegeTiers(majorKey, perTier) {
   };
 }
 
+/* The three selectivity bands used on the Colleges page, with what each
+   realistically takes. */
+const ADMIT_BANDS = [
+  {
+    key: "reach", label: "Most selective", range: "Under 20% accepted",
+    blurb: "These schools turn away the large majority of applicants, so nearly everyone admitted already looks strong on paper. What separates people is depth, not just good grades.",
+    marks: [
+      "The hardest schedule your school offers, often 8 or more APs",
+      "SAT roughly 1450 to 1580",
+      "A genuine standout: research, a deep talent, or real leadership"
+    ]
+  },
+  {
+    key: "target", label: "Selective", range: "20% to 50% accepted",
+    blurb: "Excellent, well-known schools where a strong and consistent record makes you competitive. Most balanced college lists should be heaviest right here.",
+    marks: [
+      "A challenging schedule, roughly 4 to 8 APs",
+      "SAT roughly 1250 to 1470",
+      "A few activities you stuck with, ideally with a leadership role"
+    ]
+  },
+  {
+    key: "likely", label: "Accessible", range: "Over 50% accepted",
+    blurb: "Schools where solid work makes admission likely. Plenty have outstanding programs, and many hand out real merit scholarship money for strong scores.",
+    marks: [
+      "Solid grades with a few APs in subjects you enjoy",
+      "SAT roughly 1050 to 1350",
+      "Steady involvement in something you actually care about"
+    ]
+  }
+];
+
+/** All schools in one selectivity band, optionally filtered to a field. */
+function collegesInBand(bandKey, majorKey, limit) {
+  limit = limit || 15;
+  let list = COLLEGES.filter((c) => c.acc != null);
+  if (majorKey) list = list.filter((c) => c.majors[majorKey] != null);
+  list = list.filter((c) =>
+    bandKey === "reach" ? c.acc < 20 : bandKey === "target" ? c.acc >= 20 && c.acc <= 50 : c.acc > 50
+  );
+  return list.sort((a, b) => a.acc - b.acc).slice(0, limit);
+}
+
 /* Official domains, used to fetch each school's real logo/emblem. */
 const COLLEGE_DOMAINS = {
+  mit: "mit.edu", yale: "yale.edu", princeton: "princeton.edu", columbia: "columbia.edu",
+  upenn: "upenn.edu", jhu: "jhu.edu", cmu: "cmu.edu", usc: "usc.edu", nyu: "nyu.edu",
+  berkeley: "berkeley.edu", ucla: "ucla.edu", vanderbilt: "vanderbilt.edu", rice: "rice.edu",
+  emory: "emory.edu", washu: "wustl.edu",
   harvard: "harvard.edu", stanford: "stanford.edu", duke: "duke.edu", cornell: "cornell.edu",
   gatech: "gatech.edu", michigan: "umich.edu", purdue: "purdue.edu", illinois: "illinois.edu",
   texas: "utexas.edu", unc: "unc.edu", notredame: "nd.edu", northwestern: "northwestern.edu",

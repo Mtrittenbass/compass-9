@@ -100,16 +100,19 @@ const APP_DATA = {
           ]
         },
         {
-          id: "financial-manager",
-          title: "Financial Manager",
-          salaryMedian: 161700,
-          hours: "40+/week, usually after 5+ years of experience first",
-          short: "Leads a company's money strategy, budgets, investments, and long-term planning.",
-          long: "Financial managers oversee the financial health of an organization. They set budgets, direct investment strategy, and plan for long-term goals. This is a leadership role you grow into after years of experience.",
+          id: "investment-banker",
+          title: "Investment Banker",
+          salaryMedian: 150000,
+          salaryLow: 110000,
+          salaryHigh: 300000,
+          salaryNote: "Base plus bonus. BLS does not break out investment banking separately, so this reflects industry pay from analyst through associate, concentrated in major financial centers.",
+          hours: "60 to 80+/week, famously demanding in the early years",
+          short: "Helps companies raise money, go public, and buy other companies.",
+          long: "Investment bankers advise companies on their biggest financial moves: raising capital, going public, and mergers and acquisitions. It is one of the highest-paying paths straight out of college, and also one of the most demanding in hours.",
           dayInLife: [
-            "Set and monitor budgets across departments",
-            "Guide big investment and spending decisions",
-            "Lead a team of analysts and accountants"
+            "Build financial models and valuations",
+            "Prepare pitch decks for client meetings",
+            "Push deals through long nights and tight deadlines"
           ]
         },
         {
@@ -861,95 +864,6 @@ const APP_DATA = {
       ]
     },
 
-    /* ===================== EDUCATION & TEACHING ===================== */
-    {
-      key: "education",
-      name: "Education & Teaching",
-      emoji: "🎓",
-      short: "Helping people learn, grow, and reach their potential.",
-      description:
-        "Education is for people who love a subject and love helping others get it. It's a stable, meaningful path with roles from the classroom to running whole programs.",
-      whyFits:
-        "You're patient, you like explaining things, and you get satisfaction from watching someone finally understand.",
-      sat: { low: 1200, high: 1400, note: "Typical for solid education and liberal-arts programs; teaching is more about people skills than test scores." },
-      extracurriculars: [
-        "Educators Rising (future teachers)",
-        "Peer tutoring / homework help",
-        "Coaching, camp counseling, or mentoring",
-        "Key Club or other service clubs"
-      ],
-      apRoadmap: {
-        freshman: [{ name: "AP Human Geography", note: "optional, good first AP" }, { name: "Start peer tutoring" }],
-        sophomore: [{ name: "AP Psychology" }, { name: "AP World History: Modern" }],
-        junior: [
-          { name: "AP English Language" },
-          { name: "AP U.S. History" },
-          { name: "An AP in your future subject", note: "math, science, or history" }
-        ],
-        senior: [
-          { name: "AP English Literature" },
-          { name: "AP U.S. Government and Politics" },
-          { name: "AP Statistics or AP Research" }
-        ]
-      },
-      careers: [
-        {
-          id: "elementary-teacher",
-          title: "Elementary School Teacher",
-          salaryMedian: 63680,
-          hours: "~40/week plus grading; summers off",
-          short: "Teaches young kids everything from reading to first science.",
-          long: "Elementary teachers guide young students through the building blocks of learning, reading, math, and how to be a good classmate. It's demanding, creative, and hugely important work.",
-          dayInLife: ["Plan and teach lessons across subjects", "Support each kid's progress", "Work with parents and other teachers"]
-        },
-        {
-          id: "high-school-teacher",
-          title: "High School Teacher",
-          salaryMedian: 65220,
-          hours: "~40/week plus grading; summers off",
-          short: "Teaches a subject you love to teenagers.",
-          long: "High school teachers specialize in one subject, like math, science, English, or history, and help teens master it while preparing them for college and life. Great for people who love their field and want to share it.",
-          dayInLife: ["Plan and teach subject lessons", "Grade work and give feedback", "Coach, advise, or run a club"]
-        },
-        {
-          id: "school-counselor",
-          title: "School Counselor",
-          salaryMedian: 61710,
-          hours: "~40/week; school-year schedule",
-          short: "Guides students through classes, college, and tough moments.",
-          long: "School counselors help students choose classes, plan for college and careers, and work through personal challenges. If you like the idea behind Compass 9, this is basically that job in real life.",
-          dayInLife: ["Meet students about plans and problems", "Guide course and college choices", "Connect students to support"]
-        },
-        {
-          id: "special-ed-teacher",
-          title: "Special Education Teacher",
-          salaryMedian: 65910,
-          hours: "~40/week plus planning; summers off",
-          short: "Adapts learning so every student can succeed.",
-          long: "Special education teachers work with students who learn differently, adapting lessons and support so each one can thrive. It takes patience, creativity, and a lot of heart.",
-          dayInLife: ["Build custom learning plans", "Adapt lessons for each student", "Coordinate with families and staff"]
-        },
-        {
-          id: "instructional-coordinator",
-          title: "Instructional Coordinator",
-          salaryMedian: 74620,
-          hours: "~40/week",
-          short: "Designs what and how schools teach.",
-          long: "Instructional coordinators shape curriculum and train teachers, deciding what students learn and how. It's a behind-the-scenes leadership role you grow into after classroom experience.",
-          dayInLife: ["Develop curriculum and standards", "Train and support teachers", "Review what's working and improve it"]
-        },
-        {
-          id: "professor",
-          title: "College Professor",
-          salaryMedian: 84380,
-          hours: "Flexible; heavy during research and grading",
-          short: "Teaches and researches a subject at the college level.",
-          long: "Professors teach college courses and often run research in their field. It's the top of the education path, requiring a master's or PhD, and it lets you go deep on a subject you love.",
-          dayInLife: ["Teach and mentor college students", "Research and publish in your field", "Advise students and grade work"]
-        }
-      ]
-    },
-
     /* ===================== MEDIA & COMMUNICATIONS ===================== */
     {
       key: "media",
@@ -1067,7 +981,6 @@ const FIELD_MEDIA = {
   law:         { img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=70", tint: "#b8862b" },
   social:      { img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=70", tint: "#2f9e8f" },
   arts:        { img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=70", tint: "#d94f8a" },
-  education:   { img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=70", tint: "#2b8a72" },
   media:       { img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=70", tint: "#c0392b" }
 };
 function fieldMedia(key) { return FIELD_MEDIA[key] || { img: "", tint: "#3B6EF5" }; }
@@ -1177,13 +1090,6 @@ const BOOST_APS = {
     { name: "AP U.S. History", year: "junior", why: "Adds academic rigor to a portfolio-focused transcript." },
     { name: "AP Seminar", year: "sophomore", why: "Helps you defend and explain creative choices." }
   ],
-  education: [
-    { name: "AP Spanish Language and Culture", year: "junior", why: "Bilingual teachers are in high demand everywhere." },
-    { name: "AP Calculus AB", year: "junior", why: "Opens the door to teaching math, one of the hardest roles to fill." },
-    { name: "AP Biology", year: "junior", why: "Opens the door to teaching science, also in short supply." },
-    { name: "AP Statistics", year: "senior", why: "Teachers use assessment data constantly." },
-    { name: "AP Seminar", year: "sophomore", why: "Practice explaining and presenting ideas clearly." }
-  ],
   media: [
     { name: "AP Statistics", year: "senior", why: "Data journalism is one of the most in-demand skills in news." },
     { name: "AP Spanish Language and Culture", year: "junior", why: "Reach and report on far wider audiences." },
@@ -1202,37 +1108,59 @@ const CAREER_IMG = {
   // business
   "financial-analyst": "1590283603385-17ffb3a7f29f",
   "accountant-auditor": "1554224155-6726b3ff858f",
-  "financial-manager": "1521737711867-e3b97375f902",
+  "investment-banker": "1559526324-4b87b5e36e44",
   "management-consultant": "1552664730-d307ca884978",
   "market-research-analyst": "1551288049-bebda4e38f71",
+  "personal-financial-advisor": "1450101499163-c8848c66ca85",
   // medicine
   "physician-surgeon": "1612349317150-e413f6a5b16d",
   "registered-nurse": "1576765608535-5f04d1e3f289",
   "nurse-practitioner": "1559839734-2b71ea197ec2",
   "health-services-manager": "1519494026892-80bbd2d6fd0d",
+  "pharmacist": "1587854692152-cbe660dbde88",
+  "physical-therapist": "1571019613454-1cb2f99b2d8b",
   // engineering
   "mechanical-engineer": "1581092918056-0c4c3acd3789",
   "civil-engineer": "1541888946425-d81bb19240f5",
   "electrical-engineer": "1620283085439-39620a1e21c4",
   "computer-hardware-engineer": "1518770660439-4636190af475",
+  "aerospace-engineer": "1541185933-ef5d8ed016c2",
+  "biomedical-engineer": "1532187863486-abf9dbad1b69",
   // cs
   "software-developer": "1517180102446-f3ece451e9d8",
   "web-developer": "1547658719-da2b51169166",
   "qa-analyst": "1555949963-aa79dcee981c",
   "computer-programmer": "1515879218367-8466d910aaa4",
+  "data-scientist": "1518186285589-2f7649de83e0",
+  "security-analyst": "1550751827-4bd374c3f58b",
   // law
   "lawyer": "1589829545856-d10d557cf95f",
   "judge-magistrate": "1505664194779-8beaceb93744",
   "arbitrator-mediator": "1521790361543-f645cf042ec4",
+  "paralegal": "1568992687947-868a62a9f521",
+  "prosecutor": "1436450412740-6b988f486c6b",
+  "corporate-lawyer": "1521791136064-7986c2920216",
   // social
   "psychologist": "1573497019940-1c28c88b4f3e",
   "economist": "1526304640581-d334cdbbf45e",
   "survey-researcher": "1543286386-713bdd548da4",
+  "political-scientist": "1529107386315-e1a2ed48a620",
+  "social-worker": "1488521787991-ed7bbaae773c",
+  "urban-planner": "1449824913935-59a10b8d2000",
   // arts
   "graphic-designer": "1626785774573-4b799315345d",
   "art-director": "1611532736597-de2d4265fba3",
   "industrial-designer": "1503602642458-232111445657",
-  "animator": "1616499370260-485b3e5ed653"
+  "animator": "1616499370260-485b3e5ed653",
+  "ux-designer": "1561070791-2526d30994b5",
+  "architect": "1487958449943-2429e8be8625",
+  // media
+  "journalist": "1495020689067-958852a7765e",
+  "pr-specialist": "1560250097-0b93528c311a",
+  "marketing-manager": "1533750349088-cd871a92f312",
+  "editor": "1455390582262-044cdead277a",
+  "film-video-editor": "1574717024653-61fd2cf4d44d",
+  "technical-writer": "1516321318423-f06f85e504b3"
 };
 function careerImg(majorKey, careerId) {
   const id = CAREER_IMG[careerId];
