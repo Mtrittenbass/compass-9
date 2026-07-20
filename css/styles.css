@@ -131,7 +131,9 @@ a { color: var(--blue-ink); }
   border-bottom: 1px solid var(--line);
 }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-.brand .seal-mini { width: 30px; height: 30px; }
+.brand-logo { display: block; border-radius: 50%; object-fit: cover; background: #fff; }
+.plan-empty .brand-logo, .dossier-head .brand-logo { box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+.brand .seal-mini { width: 32px; height: 32px; }
 .brand-name { font-family: var(--display); font-weight: 600; font-size: 1.4rem; letter-spacing: -0.02em; }
 .nav-links { display: flex; align-items: center; gap: var(--sp5); }
 .nav-links a {

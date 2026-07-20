@@ -54,6 +54,7 @@ const APP_DATA = {
       apRoadmap: {
         freshman: [{ name: "AP Human Geography", note: "self-contained, great first AP" }],
         sophomore: [
+          { name: "AP Business with Personal Finance", note: "new AP, first exams 2026-27" },
           { name: "AP Psychology" },
           { name: "Begin Precalculus track", note: "math foundation" }
         ],
@@ -418,6 +419,7 @@ const APP_DATA = {
         ],
         junior: [
           { name: "AP Computer Science A" },
+          { name: "AP Cybersecurity", note: "new AP, first exams 2026-27" },
           { name: "AP Calculus AB" },
           { name: "AP Physics 1" }
         ],
@@ -1031,7 +1033,9 @@ const AP_COURSES = {
   "AP 3-D Art and Design": "Build a portfolio of three-dimensional work: sculpture, ceramics, or product design.",
   "AP Drawing": "Build a drawing portfolio that shows skill and a personal point of view.",
   "AP Spanish Language and Culture": "Speaking, reading, and writing Spanish at a college level. Valuable in nearly every career.",
-  "AP World Language": "Any world language AP (Spanish, French, Chinese, and more). Colleges like four years of one language."
+  "AP World Language": "Any world language AP (Spanish, French, Chinese, and more). Colleges like four years of one language.",
+  "AP Business with Personal Finance": "A brand-new AP (first exams 2026-27): a hands-on course in entrepreneurship, finance, and accounting where you build a real business plan all year and defend it on the exam.",
+  "AP Cybersecurity": "A brand-new AP (first exams 2026-27): a practical course on digital threats, vulnerabilities, and defense-in-depth that builds real, workforce-ready security skills."
 };
 function apDescription(name) {
   if (AP_COURSES[name]) return AP_COURSES[name];
@@ -1060,12 +1064,12 @@ const BOOST_APS = {
     { name: "AP Spanish Language and Culture", year: "junior", why: "Adds breadth to a very STEM-heavy transcript." },
     { name: "AP Statistics", year: "senior", why: "Data analysis shows up in every engineering discipline." },
     { name: "AP Research", year: "senior", why: "An independent project is close to real engineering work." },
-    { name: "AP Macroeconomics", year: "senior", why: "Helps you think about cost, scale, and systems." }
+    { name: "AP Cybersecurity", year: "junior", why: "New for 2026-27, and increasingly vital for hardware and control systems." }
   ],
   cs: [
     { name: "AP Psychology", year: "sophomore", why: "Understanding people is the core of good product and UX design." },
     { name: "AP English Language", year: "junior", why: "Strong writing separates good engineers from great ones." },
-    { name: "AP Spanish Language and Culture", year: "junior", why: "Balances a heavy STEM transcript." },
+    { name: "AP Business with Personal Finance", year: "sophomore", why: "New for 2026-27, and a real edge if you want to build a startup." },
     { name: "AP Macroeconomics", year: "senior", why: "Useful if you ever want to build or join a startup." },
     { name: "AP Seminar", year: "sophomore", why: "Research and presentation skills transfer straight to tech." }
   ],
@@ -1095,7 +1099,7 @@ const BOOST_APS = {
     { name: "AP Spanish Language and Culture", year: "junior", why: "Reach and report on far wider audiences." },
     { name: "AP Art History", year: "sophomore", why: "Sharpens visual literacy for video, design, and branding." },
     { name: "AP Microeconomics", year: "senior", why: "Media is a business, and understanding it helps you rise." },
-    { name: "AP Computer Science Principles", year: "junior", why: "Digital and interactive storytelling keeps growing." }
+    { name: "AP Business with Personal Finance", year: "sophomore", why: "New for 2026-27, and marketing runs on business fundamentals." }
   ]
 };
 function boostAPsFor(majorKey, year) {

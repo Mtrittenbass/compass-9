@@ -39,19 +39,7 @@ const ICONS = {
   }
 };
 
-/** Compass 9 emblem: navy compass rose + gold, with an "IX" center. Scales to any size. */
+/** Compass 9 logo (the uploaded emblem). className controls size in CSS. */
 function sealSVG(className) {
-  return `<svg class="${className}" viewBox="0 0 100 100" aria-hidden="true">
-    <circle cx="50" cy="50" r="49" fill="#13294d"/>
-    <circle cx="50" cy="50" r="46.5" fill="#f7f3e8"/>
-    <circle cx="50" cy="50" r="46.5" fill="none" stroke="#c9a227" stroke-width="1.4"/>
-    <circle cx="50" cy="50" r="42.5" fill="none" stroke="#13294d" stroke-width="3.4" stroke-dasharray="1 6.1" stroke-linecap="round"/>
-    <path d="M71.2,28.8 L58,50 L71.2,71.2 L50,58 L28.8,71.2 L42,50 L28.8,28.8 L50,42 Z" fill="#c9a227"/>
-    <path d="M50,11 L55.7,44.3 L89,50 L55.7,55.7 L50,89 L44.3,55.7 L11,50 L44.3,44.3 Z" fill="#13294d"/>
-    <path transform="translate(50,26) scale(0.62)" d="M0,-9 C-2.4,-5 -6.5,-4.2 -6.5,0 C-6.5,3.4 -3,4.3 -2,1.8 C-2.2,5.2 -4.2,7.2 0,9.4 C4.2,7.2 2.2,5.2 2,1.8 C3,4.3 6.5,3.4 6.5,0 C6.5,-4.2 2.4,-5 0,-9 Z" fill="#d9b23a"/>
-    <circle cx="50" cy="50" r="14.5" fill="#c9a227"/>
-    <circle cx="50" cy="50" r="12" fill="#13294d"/>
-    <circle cx="50" cy="50" r="12" fill="none" stroke="#e3c35a" stroke-width="0.8"/>
-    <text x="50" y="50" fill="#e3c35a" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="13" text-anchor="middle" dominant-baseline="central" letter-spacing="0.5">IX</text>
-  </svg>`;
+  return `<img class="brand-logo ${className}" src="assets/logo.png" alt="Compass 9" />`;
 }
