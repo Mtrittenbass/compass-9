@@ -62,14 +62,54 @@ const COLLEGES = [
 
 const COLLEGES_BY_ID = COLLEGES.reduce((a, c) => ((a[c.id] = c), a), {});
 
-/* Strengths for the newer fields, merged in without editing every row above. */
+/* Extra strengths merged in without editing every row above. Also fills gaps so
+   every field has options at each selectivity tier. */
 const EXTRA_MAJOR_SCORES = {
-  education: { michigan: 92, wisconsin: 88, texas: 86, illinois: 85, washington: 84, maryland: 84, florida: 84, georgia: 82, minnesota: 82, arizona: 80, kentucky: 80, bc: 80 },
-  media: { northwestern: 96, syracuse: 94, unc: 88, georgia: 86, texas: 86, florida: 84, michigan: 84, maryland: 82, arizona: 82, miami: 82, wisconsin: 82, minnesota: 80 }
+  education: { michigan: 92, wisconsin: 88, unc: 86, stanford: 86, texas: 86, illinois: 85, northwestern: 84, washington: 84, maryland: 84, florida: 84, georgia: 82, minnesota: 82, arizona: 80, kentucky: 80, bc: 80 },
+  media: { northwestern: 96, syracuse: 94, unc: 88, georgia: 86, texas: 86, florida: 84, michigan: 84, maryland: 82, arizona: 82, miami: 82, wisconsin: 82, alabama: 80, minnesota: 80, cincinnati: 78, tennessee: 78 },
+  arts: { fsu: 86, maryland: 78, georgia: 78 },
+  cs: { minnesota: 84, cincinnati: 80, arizona: 78, tennessee: 76 }
 };
 Object.entries(EXTRA_MAJOR_SCORES).forEach(([mk, scores]) => {
   Object.entries(scores).forEach(([id, sc]) => { if (COLLEGES_BY_ID[id]) COLLEGES_BY_ID[id].majors[mk] = sc; });
 });
+
+/* Approximate recent admissions data: acceptance rate (%) and SAT middle 50%.
+   These move year to year, so they are shown as a guide, not a guarantee. */
+const COLLEGE_ADMISSIONS = {
+  harvard: { acc: 3, sat: [1500, 1580] }, stanford: { acc: 4, sat: [1500, 1570] }, duke: { acc: 6, sat: [1510, 1570] },
+  northwestern: { acc: 7, sat: [1500, 1560] }, cornell: { acc: 8, sat: [1500, 1560] }, notredame: { acc: 12, sat: [1450, 1540] },
+  bc: { acc: 16, sat: [1440, 1520] }, gatech: { acc: 16, sat: [1420, 1550] }, unc: { acc: 17, sat: [1360, 1520] },
+  michigan: { acc: 18, sat: [1370, 1530] }, miami: { acc: 19, sat: [1340, 1490] },
+  florida: { acc: 23, sat: [1330, 1470] }, fsu: { acc: 25, sat: [1270, 1390] }, texas: { acc: 29, sat: [1300, 1500] },
+  georgia: { acc: 37, sat: [1300, 1450] }, clemson: { acc: 38, sat: [1230, 1400] }, sdsu: { acc: 39, sat: [1160, 1350] },
+  syracuse: { acc: 42, sat: [1290, 1450] }, wisconsin: { acc: 43, sat: [1330, 1480] }, washington: { acc: 43, sat: [1250, 1470] },
+  auburn: { acc: 44, sat: [1180, 1380] }, illinois: { acc: 45, sat: [1300, 1500] }, maryland: { acc: 45, sat: [1360, 1520] },
+  pitt: { acc: 49, sat: [1290, 1460] }, purdue: { acc: 50, sat: [1210, 1450] },
+  uconn: { acc: 55, sat: [1230, 1430] }, pennstate: { acc: 55, sat: [1200, 1390] }, southcarolina: { acc: 64, sat: [1190, 1380] },
+  tennessee: { acc: 68, sat: [1180, 1360] }, okstate: { acc: 70, sat: [1080, 1300] }, minnesota: { acc: 75, sat: [1300, 1470] },
+  lsu: { acc: 76, sat: [1090, 1310] }, gonzaga: { acc: 78, sat: [1210, 1390] }, arkansas: { acc: 79, sat: [1090, 1310] },
+  alabama: { acc: 80, sat: [1080, 1340] }, wsu: { acc: 80, sat: [1050, 1260] }, louisville: { acc: 83, sat: [1080, 1310] },
+  cincinnati: { acc: 85, sat: [1150, 1360] }, arizona: { acc: 87, sat: [1100, 1360] }, olemiss: { acc: 88, sat: [1030, 1270] },
+  kentucky: { acc: 95, sat: [1080, 1320] }, kstate: { acc: 95, sat: [1030, 1280] }
+};
+Object.entries(COLLEGE_ADMISSIONS).forEach(([id, d]) => {
+  const c = COLLEGES_BY_ID[id];
+  if (c) { c.acc = d.acc; c.sat = d.sat; }
+});
+
+/** Nine schools for a field: 3 reach (under 20% accept), 3 target (20-50%), 3 likely (over 50%). */
+function collegeTiers(majorKey, perTier) {
+  perTier = perTier || 3;
+  const ranked = COLLEGES
+    .filter((c) => c.majors[majorKey] != null && c.acc != null)
+    .sort((a, b) => b.majors[majorKey] - a.majors[majorKey]);
+  return {
+    reach: ranked.filter((c) => c.acc < 20).slice(0, perTier),
+    target: ranked.filter((c) => c.acc >= 20 && c.acc <= 50).slice(0, perTier),
+    likely: ranked.filter((c) => c.acc > 50).slice(0, perTier)
+  };
+}
 
 /* Official domains, used to fetch each school's real logo/emblem. */
 const COLLEGE_DOMAINS = {

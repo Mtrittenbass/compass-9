@@ -466,6 +466,58 @@ a { color: var(--blue-ink); }
 .match-num { font-family: var(--varsity); font-size: 1.7rem; color: var(--gold-bright); line-height: 1; }
 .match-label { font-family: var(--mono); font-size: 0.54rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6f7c98; }
 .fine { color: #6f7c98; font-size: 0.8rem; margin: 4px 0 0; }
+/* ---- AP rigor callout ---- */
+.rigor-card { background: linear-gradient(160deg, rgba(231,181,73,0.10), var(--paper-card)); border-color: rgba(231,181,73,0.30); }
+.rigor-card .hub-card-title .field-icon { color: var(--gold-ink); }
+.rigor-body { color: var(--ink); font-size: 1.02rem; }
+.rigor-points { margin: var(--sp3) 0 0; padding-left: 18px; color: var(--ink-soft); }
+.rigor-points li { margin-bottom: 6px; }
+
+/* ---- core / boost toggle ---- */
+.plan-toggle { display: inline-flex; gap: 4px; background: var(--paper-inset); border: 1px solid var(--line);
+  border-radius: 999px; padding: 4px; margin: var(--sp4) 0 var(--sp3); flex-wrap: wrap; }
+.ptab { font-family: var(--body); font-weight: 600; font-size: 0.82rem; cursor: pointer; border: none;
+  background: transparent; color: var(--ink-soft); padding: 7px 15px; border-radius: 999px; transition: all 0.18s ease; }
+.ptab:hover { color: var(--ink); }
+.ptab.active { background: var(--gold); color: #201603; }
+
+/* ---- course labels + filtering ---- */
+.cl-tag { display: inline-block; font-family: var(--mono); font-size: 0.54rem; text-transform: uppercase;
+  letter-spacing: 0.09em; padding: 2px 6px; border-radius: 999px; margin-bottom: 5px; }
+.cl-core { background: rgba(59,110,245,0.18); color: #9dbaff; border: 1px solid rgba(59,110,245,0.35); }
+.cl-boost { background: rgba(231,181,73,0.16); color: var(--gold-ink); border: 1px solid rgba(231,181,73,0.35); }
+.roadmap[data-filter="core"] li[data-tag="boost"],
+.roadmap[data-filter="boost"] li[data-tag="core"] { display: none; }
+
+/* ---- hover description for each course ---- */
+.year-classes li { position: relative; cursor: help; outline: none; }
+.year-classes li[data-tip]:hover, .year-classes li[data-tip]:focus-visible { border-color: var(--gold); }
+.year-classes li[data-tip]:hover::after, .year-classes li[data-tip]:focus-visible::after {
+  content: attr(data-tip); position: absolute; left: 50%; bottom: calc(100% + 9px); transform: translateX(-50%);
+  width: 210px; background: #070f20; color: #e8edf9; border: 1px solid var(--line-strong); border-radius: 10px;
+  padding: 10px 12px; font-size: 0.78rem; line-height: 1.45; font-weight: 400; font-style: normal; z-index: 60;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.5); pointer-events: none;
+}
+.year-classes li[data-tip]:hover::before, .year-classes li[data-tip]:focus-visible::before {
+  content: ""; position: absolute; left: 50%; bottom: calc(100% + 4px); transform: translateX(-50%);
+  border: 6px solid transparent; border-top-color: var(--line-strong); z-index: 61; pointer-events: none;
+}
+
+/* ---- college selectivity tiers ---- */
+.tiers { display: flex; flex-direction: column; gap: var(--sp5); margin: var(--sp5) 0 var(--sp4); }
+.tier-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.tier-name { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; padding: 4px 11px; border-radius: 999px; }
+.tier-reach { background: rgba(239,110,110,0.15); color: #ff9a9a; border: 1px solid rgba(239,110,110,0.35); }
+.tier-target { background: rgba(231,181,73,0.15); color: var(--gold-bright); border: 1px solid rgba(231,181,73,0.35); }
+.tier-likely { background: rgba(78,201,145,0.15); color: #7fdcb0; border: 1px solid rgba(78,201,145,0.35); }
+.tier-sub { font-size: 0.78rem; color: #7c89a6; }
+.tier-list { display: flex; flex-direction: column; gap: 8px; }
+.college-stats { display: flex; gap: var(--sp4); flex: none; }
+.cstat { display: flex; flex-direction: column; text-align: right; }
+.cstat-v { font-family: var(--mono); font-weight: 700; font-size: 0.95rem; color: var(--gold-bright); }
+.cstat-k { font-family: var(--mono); font-size: 0.54rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6f7c98; }
+@media (max-width: 560px) { .college-stats { width: 100%; justify-content: flex-start; margin-top: 6px; } .cstat { text-align: left; } }
+
 .hub-footer-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: var(--sp3); }
 
 /* ============================ ABOUT ============================ */
@@ -541,6 +593,10 @@ a { color: var(--blue-ink); }
 .d-fact .k { font-family: var(--mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); display: block; }
 .d-fact .v { font-weight: 700; font-size: 1.05rem; }
 .d-colleges { display: flex; flex-wrap: wrap; gap: 8px; }
+.d-tiers { display: flex; flex-direction: column; gap: 12px; }
+.d-tier-label { display: inline-block; font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--gold-ink); margin-bottom: 6px; }
+.d-college em { font-style: normal; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-left: 2px; }
 .d-college { --c1:#234; --c2:#fff; --tx:#fff; display: flex; align-items: center; gap: 8px; background: var(--paper-inset); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px 5px 6px; font-size: 0.86rem; font-weight: 600; }
 .d-college .crest { width: 26px; height: 26px; border-width: 1px; border-radius: 7px; }
 .d-college .crest img { padding: 3px; }

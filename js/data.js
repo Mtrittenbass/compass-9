@@ -1072,6 +1072,130 @@ const FIELD_MEDIA = {
 };
 function fieldMedia(key) { return FIELD_MEDIA[key] || { img: "", tint: "#3B6EF5" }; }
 
+/* The rigor explainer shown above every AP plan. */
+const AP_RIGOR_BLURB = {
+  title: "How colleges read your schedule",
+  body: "If you want the best chance at highly selective colleges, take the most rigorous schedule you can handle. Compass 9 marks which courses are core to your field and which ones are valuable adds for your college applications. The best way to maximize rigor is simple: always take the hardest level offered in the subjects you care most about.",
+  points: [
+    "Core courses are the ones admissions officers expect to see for your field.",
+    "Boost courses are optional adds that make an application stronger and show range.",
+    "Colleges compare you to your own school, so take the hardest classes your school actually offers."
+  ]
+};
+
+/* Plain-language descriptions for every AP, used for the hover tooltips. */
+const AP_COURSES = {
+  "AP Human Geography": "How people, cities, and cultures spread across the world. A popular first AP because it needs no prerequisites.",
+  "AP Psychology": "How the brain and behavior work: memory, personality, mental health, and research methods.",
+  "AP Statistics": "Reading and analyzing data the way real scientists, businesses, and journalists do.",
+  "AP Precalculus": "The bridge into calculus: functions, trig, and modeling with equations.",
+  "AP Calculus AB": "The first year of college calculus: rates of change, derivatives, and integrals.",
+  "AP Calculus BC": "Everything in Calculus AB plus series and more advanced integration. The most rigorous math most schools offer.",
+  "AP Microeconomics": "How individual people and companies make decisions about money, prices, and competition.",
+  "AP Macroeconomics": "How whole economies work: inflation, unemployment, growth, and government policy.",
+  "AP English Language": "Analyzing nonfiction and writing persuasive, evidence-based arguments. Useful for almost every major.",
+  "AP English Literature": "Close reading of novels, poetry, and plays, plus writing literary analysis.",
+  "AP U.S. Government and Politics": "How American government actually works: the Constitution, courts, elections, and power.",
+  "AP Comparative Government and Politics": "Comparing how six different countries govern themselves and why systems differ.",
+  "AP U.S. History": "American history from colonization to today, with heavy focus on analyzing sources.",
+  "AP United States History": "American history from colonization to today, with heavy focus on analyzing sources.",
+  "AP United States Government and Politics": "How American government actually works: the Constitution, courts, elections, and power.",
+  "AP World History: Modern": "World history from about 1200 to now, connecting empires, trade, and revolutions.",
+  "AP European History": "European history from the Renaissance forward, with strong essay writing.",
+  "AP Computer Science Principles": "A friendly intro to computing: how the internet, data, and algorithms work. Little or no coding experience needed.",
+  "AP Computer Science A": "Real programming in Java: objects, arrays, and algorithms. The heavier CS course.",
+  "AP Biology": "College-level biology: cells, genetics, evolution, and ecosystems, with lots of lab work.",
+  "AP Chemistry": "College-level chemistry: atoms, reactions, and equilibrium. Lab heavy and math heavy.",
+  "AP Environmental Science": "How natural systems work and how humans affect them. Lighter math than Chem or Physics.",
+  "AP Physics 1": "Algebra-based physics: motion, forces, and energy. Usually the first physics AP.",
+  "AP Physics 2": "Algebra-based physics part two: fluids, electricity, magnetism, and modern physics.",
+  "AP Physics C: Mechanics": "Calculus-based mechanics. The physics course engineering programs like to see.",
+  "AP Physics C: Electricity & Magnetism": "Calculus-based electricity and magnetism. One of the hardest APs offered.",
+  "AP Seminar": "Year one of AP Capstone: research a topic, build an argument, and present it.",
+  "AP Research": "Year two of AP Capstone: run your own year-long research project and write an academic paper.",
+  "AP Art History": "Analyzing 250 works of art across cultures and time. Great for visual thinkers.",
+  "AP 2-D Art and Design": "Build a portfolio of two-dimensional work: drawing, photography, graphic design, or digital art.",
+  "AP 3-D Art and Design": "Build a portfolio of three-dimensional work: sculpture, ceramics, or product design.",
+  "AP Drawing": "Build a drawing portfolio that shows skill and a personal point of view.",
+  "AP Spanish Language and Culture": "Speaking, reading, and writing Spanish at a college level. Valuable in nearly every career.",
+  "AP World Language": "Any world language AP (Spanish, French, Chinese, and more). Colleges like four years of one language."
+};
+function apDescription(name) {
+  if (AP_COURSES[name]) return AP_COURSES[name];
+  const hit = Object.keys(AP_COURSES).find((k) => name.indexOf(k) === 0);
+  return hit ? AP_COURSES[hit] : "";
+}
+
+/* Optional "boost" courses per field: not required, but strong adds for applications. */
+const BOOST_APS = {
+  business: [
+    { name: "AP Seminar", year: "sophomore", why: "Builds the research and pitching skills business programs love." },
+    { name: "AP U.S. History", year: "junior", why: "Shows you can handle a heavy reading and writing load." },
+    { name: "AP Spanish Language and Culture", year: "junior", why: "Business is global, and language fluency stands out." },
+    { name: "AP Calculus BC", year: "senior", why: "Maximum math rigor for competitive business and finance programs." },
+    { name: "AP Computer Science A", year: "senior", why: "An edge for analytics, fintech, and consulting roles." }
+  ],
+  medicine: [
+    { name: "AP Seminar", year: "sophomore", why: "Teaches you to read and evaluate research, which pre-med runs on." },
+    { name: "AP English Language", year: "junior", why: "Med school applications and patient notes are writing-heavy." },
+    { name: "AP Spanish Language and Culture", year: "junior", why: "Being bilingual is a real advantage with patients." },
+    { name: "AP Calculus BC", year: "senior", why: "Adds rigor beyond the AB most pre-meds stop at." },
+    { name: "AP U.S. History", year: "sophomore", why: "Shows breadth outside the sciences." }
+  ],
+  engineering: [
+    { name: "AP English Language", year: "junior", why: "Engineers write proposals and reports constantly." },
+    { name: "AP Spanish Language and Culture", year: "junior", why: "Adds breadth to a very STEM-heavy transcript." },
+    { name: "AP Statistics", year: "senior", why: "Data analysis shows up in every engineering discipline." },
+    { name: "AP Research", year: "senior", why: "An independent project is close to real engineering work." },
+    { name: "AP Macroeconomics", year: "senior", why: "Helps you think about cost, scale, and systems." }
+  ],
+  cs: [
+    { name: "AP Psychology", year: "sophomore", why: "Understanding people is the core of good product and UX design." },
+    { name: "AP English Language", year: "junior", why: "Strong writing separates good engineers from great ones." },
+    { name: "AP Spanish Language and Culture", year: "junior", why: "Balances a heavy STEM transcript." },
+    { name: "AP Macroeconomics", year: "senior", why: "Useful if you ever want to build or join a startup." },
+    { name: "AP Seminar", year: "sophomore", why: "Research and presentation skills transfer straight to tech." }
+  ],
+  law: [
+    { name: "AP European History", year: "sophomore", why: "More document analysis, which is exactly what law is." },
+    { name: "AP Calculus AB", year: "junior", why: "Proves you can handle quantitative rigor, not just humanities." },
+    { name: "AP Statistics", year: "senior", why: "Modern law leans on data, from forensics to antitrust." },
+    { name: "AP Spanish Language and Culture", year: "junior", why: "Opens doors in immigration and international law." },
+    { name: "AP Computer Science Principles", year: "sophomore", why: "Tech and privacy law is one of the fastest-growing areas." }
+  ],
+  social: [
+    { name: "AP Calculus AB", year: "junior", why: "Modern social science is far more quantitative than people expect." },
+    { name: "AP Seminar", year: "sophomore", why: "Research design is the heart of social science." },
+    { name: "AP Spanish Language and Culture", year: "junior", why: "Essential for fieldwork and working with communities." },
+    { name: "AP Computer Science Principles", year: "senior", why: "Data tools are now standard in research." },
+    { name: "AP Biology", year: "senior", why: "Useful background if you lean toward psychology or neuroscience." }
+  ],
+  arts: [
+    { name: "AP English Language", year: "junior", why: "You will write artist statements and pitches your whole career." },
+    { name: "AP Psychology", year: "sophomore", why: "Design is really about how people perceive and react." },
+    { name: "AP Computer Science Principles", year: "junior", why: "Digital tools are now part of nearly every design job." },
+    { name: "AP U.S. History", year: "junior", why: "Adds academic rigor to a portfolio-focused transcript." },
+    { name: "AP Seminar", year: "sophomore", why: "Helps you defend and explain creative choices." }
+  ],
+  education: [
+    { name: "AP Spanish Language and Culture", year: "junior", why: "Bilingual teachers are in high demand everywhere." },
+    { name: "AP Calculus AB", year: "junior", why: "Opens the door to teaching math, one of the hardest roles to fill." },
+    { name: "AP Biology", year: "junior", why: "Opens the door to teaching science, also in short supply." },
+    { name: "AP Statistics", year: "senior", why: "Teachers use assessment data constantly." },
+    { name: "AP Seminar", year: "sophomore", why: "Practice explaining and presenting ideas clearly." }
+  ],
+  media: [
+    { name: "AP Statistics", year: "senior", why: "Data journalism is one of the most in-demand skills in news." },
+    { name: "AP Spanish Language and Culture", year: "junior", why: "Reach and report on far wider audiences." },
+    { name: "AP Art History", year: "sophomore", why: "Sharpens visual literacy for video, design, and branding." },
+    { name: "AP Microeconomics", year: "senior", why: "Media is a business, and understanding it helps you rise." },
+    { name: "AP Computer Science Principles", year: "junior", why: "Digital and interactive storytelling keeps growing." }
+  ]
+};
+function boostAPsFor(majorKey, year) {
+  return (BOOST_APS[majorKey] || []).filter((b) => b.year === year);
+}
+
 /* Per-career photos (Unsplash). If one fails to load it falls back to the
    field photo, so a career card is never left blank. */
 const CAREER_IMG = {

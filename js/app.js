@@ -334,35 +334,61 @@
   /* ========================================================================
      RESULTS HUB
      ===================================================================== */
+  const escAttr = (s) => esc(s).replace(/"/g, "&quot;");
+
+  // Year-by-year plan: core courses for the field plus optional "boost" courses,
+  // each labelled and hoverable for a plain-language description.
   function roadmapHTML(major) {
     const years = [["freshman", "Freshman"], ["sophomore", "Sophomore"], ["junior", "Junior"], ["senior", "Senior"]];
     return years.map(([key, label], i) => {
-      const classes = major.apRoadmap[key] || [];
+      const core = (major.apRoadmap[key] || []).map((cl) => ({ name: cl.name, note: cl.note, tag: "core" }));
+      const boost = boostAPsFor(major.key, key).map((b) => ({ name: b.name, note: b.why, tag: "boost" }));
+      const items = core.concat(boost);
       return `
       <div class="year-col">
         <div class="year-head"><span class="year-num">Grade ${9 + i}</span>${label}</div>
         <ul class="year-classes">
-          ${classes.map((cl) => `<li><span class="cl-name">${esc(cl.name)}</span>${cl.note ? `<span class="cl-note">${esc(cl.note)}</span>` : ""}</li>`).join("")}
+          ${items.map((cl) => {
+            const tip = apDescription(cl.name);
+            return `<li data-tag="${cl.tag}"${tip ? ` data-tip="${escAttr(tip)}"` : ""} tabindex="0">
+              <span class="cl-tag cl-${cl.tag}">${cl.tag === "core" ? "Core" : "Boost"}</span>
+              <span class="cl-name">${esc(cl.name)}</span>
+              ${cl.note ? `<span class="cl-note">${esc(cl.note)}</span>` : ""}
+            </li>`;
+          }).join("")}
         </ul>
       </div>`;
     }).join("");
   }
 
-  function collegeRowsHTML(majorKey) {
-    return topCollegesForMajor(majorKey, 5).map((c, i) => {
-      const score = c.majors[majorKey];
-      const tags = [majorKey, ...collegeStrengths(c, majorKey)]
-        .map((k, idx) => `<span class="ctag${idx === 0 ? " ctag-lead" : ""}">${esc(getMajor(k).name)}</span>`).join("");
+  // Nine schools grouped by how selective they are, with acceptance rate + SAT.
+  function collegeTiersHTML(majorKey) {
+    const tiers = collegeTiers(majorKey, 3);
+    const groups = [
+      { key: "reach", label: "Reach", sub: "under 20% accepted" },
+      { key: "target", label: "Target", sub: "20% to 50% accepted" },
+      { key: "likely", label: "Likely", sub: "over 50% accepted" }
+    ];
+    return groups.map((g) => {
+      const list = tiers[g.key] || [];
+      if (!list.length) return "";
       return `
-      <div class="college" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}">
-        <span class="college-rank">0${i + 1}</span>
-        <div class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></div>
-        <div class="college-info">
-          <div class="college-name">${esc(c.name)}</div>
-          <div class="college-meta">${esc(c.city)}</div>
-          <div class="college-tags">${tags}</div>
+      <div class="tier">
+        <div class="tier-head"><span class="tier-name tier-${g.key}">${g.label}</span><span class="tier-sub">${g.sub}</span></div>
+        <div class="tier-list">
+          ${list.map((c) => `
+            <div class="college" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}">
+              <div class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></div>
+              <div class="college-info">
+                <div class="college-name">${esc(c.name)}</div>
+                <div class="college-meta">${esc(c.city)}</div>
+              </div>
+              <div class="college-stats">
+                <div class="cstat"><span class="cstat-v">${c.acc}%</span><span class="cstat-k">accepted</span></div>
+                <div class="cstat"><span class="cstat-v">${c.sat[0]}-${c.sat[1]}</span><span class="cstat-k">SAT</span></div>
+              </div>
+            </div>`).join("")}
         </div>
-        <div class="match"><div class="match-num" data-count="${score}">0</div><div class="match-label">match</div></div>
       </div>`;
     }).join("");
   }
@@ -414,10 +440,23 @@
           <p class="region-note">${esc(APP_DATA.regionNote)}</p>
         </div>
 
+        <div class="hub-card rigor-card reveal">
+          <h3 class="hub-card-title">${ICONS.ui.star}${esc(AP_RIGOR_BLURB.title)}</h3>
+          <p class="rigor-body">${esc(AP_RIGOR_BLURB.body)}</p>
+          <ul class="rigor-points">
+            ${AP_RIGOR_BLURB.points.map((p) => `<li>${esc(p)}</li>`).join("")}
+          </ul>
+        </div>
+
         <div class="hub-card reveal">
           <h3 class="hub-card-title">${ICONS.ui.map}Your AP class roadmap</h3>
-          <p class="hub-card-sub">A year-by-year plan tuned for ${esc(major.name)}. Real prerequisite chains matter, you build up to the hard APs.</p>
-          <div class="roadmap">${roadmapHTML(major)}</div>
+          <p class="hub-card-sub">A year-by-year plan tuned for ${esc(major.name)}. Hover any course for a plain-language description.</p>
+          <div class="plan-toggle" role="tablist" aria-label="Filter courses">
+            <button class="ptab active" data-plan="all" role="tab">All courses</button>
+            <button class="ptab" data-plan="core" role="tab">Core only</button>
+            <button class="ptab" data-plan="boost" role="tab">Boosts only</button>
+          </div>
+          <div class="roadmap" data-filter="all">${roadmapHTML(major)}</div>
           <p class="caveat">📌 ${esc(APP_DATA.bhsCaveat)}</p>
         </div>
 
@@ -435,10 +474,10 @@
         </div>
 
         <div class="hub-card colleges-card reveal">
-          <h3 class="hub-card-title">${ICONS.ui.cap}Top 5 colleges for this path</h3>
-          <p class="hub-card-sub">Standout ${esc(major.name)} programs, shown in each school's colors.</p>
-          <div class="college-list">${collegeRowsHTML(major.key)}</div>
-          <p class="fine">Ranked by program reputation for ${esc(major.name)}, inspiration, not an admissions guarantee. <a href="#/colleges" style="color:var(--gold-bright)">Explore all schools →</a></p>
+          <h3 class="hub-card-title">${ICONS.ui.cap}Where to apply for ${esc(major.name)}</h3>
+          <p class="hub-card-sub">A balanced list: three reaches, three targets, and three likelies, with each school's acceptance rate and SAT middle 50%.</p>
+          <div class="tiers">${collegeTiersHTML(major.key)}</div>
+          <p class="fine">Acceptance rates and SAT ranges are approximate and shift every year. Build a balanced list, and remember that a strong application is more than numbers. <a href="#/colleges" style="color:var(--gold-bright)">Explore all schools →</a></p>
         </div>
 
         <div class="hub-footer-ctas">
@@ -449,6 +488,15 @@
 
     const save = app.querySelector('[data-action="save-plan"]');
     if (save) save.addEventListener("click", () => { savePlan(major.key, career.id); go("#/plan"); });
+
+    // Core / Boost filter for the AP plan
+    const roadmapEl = app.querySelector(".roadmap");
+    app.querySelectorAll(".ptab").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        app.querySelectorAll(".ptab").forEach((t) => t.classList.toggle("active", t === tab));
+        if (roadmapEl) roadmapEl.dataset.filter = tab.dataset.plan;
+      });
+    });
 
     // count-ups run when their card scrolls into view
     scheduleCountsOnReveal();
@@ -626,8 +674,14 @@
     }
 
     const fileNo = "PF-" + String(Math.abs(hashStr(major.key + career.id)) % 9000 + 1000);
-    const collegePills = topCollegesForMajor(major.key, 5).map((c) =>
-      `<span class="d-college" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}"><span class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></span>${esc(c.short)}</span>`).join("");
+    const dTiers = collegeTiers(major.key, 3);
+    const pill = (c) =>
+      `<span class="d-college" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}"><span class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></span>${esc(c.short)} <em>${c.acc}%</em></span>`;
+    const collegePills = [
+      ["Reach", dTiers.reach], ["Target", dTiers.target], ["Likely", dTiers.likely]
+    ].filter(([, list]) => list.length).map(([label, list]) =>
+      `<div class="d-tier"><span class="d-tier-label">${label}</span><div class="d-colleges">${list.map(pill).join("")}</div></div>`
+    ).join("");
 
     app.innerHTML = `
       <section class="plan-wrap viewfade">
@@ -669,7 +723,7 @@
 
             <div class="dsec">
               <div class="dsec-h">colleges to aim for</div>
-              <div class="d-colleges">${collegePills}</div>
+              <div class="d-tiers">${collegePills}</div>
             </div>
 
             <div class="dsec">
