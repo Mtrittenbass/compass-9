@@ -122,13 +122,16 @@ Object.entries(COLLEGE_ADMISSIONS).forEach(([id, d]) => {
 /** Nine schools for a field: 3 reach (under 20% accept), 3 target (20-50%), 3 likely (over 50%). */
 function collegeTiers(majorKey, perTier) {
   perTier = perTier || 3;
+  // Pick the strongest programs in each band, then order each band by acceptance
+  // rate (lowest first) so the list reads cleanly instead of looking jumbled.
   const ranked = COLLEGES
     .filter((c) => c.majors[majorKey] != null && c.acc != null)
     .sort((a, b) => b.majors[majorKey] - a.majors[majorKey]);
+  const byAcc = (a, b) => a.acc - b.acc;
   return {
-    reach: ranked.filter((c) => c.acc < 20).slice(0, perTier),
-    target: ranked.filter((c) => c.acc >= 20 && c.acc <= 50).slice(0, perTier),
-    likely: ranked.filter((c) => c.acc > 50).slice(0, perTier)
+    reach: ranked.filter((c) => c.acc < 20).slice(0, perTier).sort(byAcc),
+    target: ranked.filter((c) => c.acc >= 20 && c.acc <= 50).slice(0, perTier).sort(byAcc),
+    likely: ranked.filter((c) => c.acc > 50).slice(0, perTier).sort(byAcc)
   };
 }
 
