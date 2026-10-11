@@ -202,7 +202,10 @@ const COLLEGE_DOMAINS = {
    sharper source instead. (If any override fails, the crest falls back to the
    monogram automatically via the <img> onerror handler.) */
 const LOGO_OVERRIDE = {
-  clemson: "https://icons.duckduckgo.com/ip3/clemson.edu.ico",
+  columbia: "assets/logos/columbia.jpg",
+  nyu: "assets/logos/nyu.png",
+  clemson: "assets/logos/clemson.png",
+  wsu: "assets/logos/wsu.png",
   washington: "https://icons.duckduckgo.com/ip3/washington.edu.ico",
   arkansas: "https://icons.duckduckgo.com/ip3/uark.edu.ico",
   uconn: "https://icons.duckduckgo.com/ip3/uconn.edu.ico",
