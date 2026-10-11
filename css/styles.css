@@ -275,9 +275,21 @@ a { color: var(--blue-ink); }
 /* founders */
 .founders { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp4); margin-top: var(--sp5); }
 .founders-solo { grid-template-columns: 1fr; max-width: 440px; }
-.pillars-4 { grid-template-columns: repeat(2, 1fr); }
-.pillar-founder .founder-avatar { margin-bottom: var(--sp3); width: 54px; height: 54px; font-size: 1.15rem; }
-.founder-credit { margin-top: var(--sp3); font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold-ink); }
+/* founder feature (its own prominent section on the About page) */
+.founder-feature { display: grid; grid-template-columns: 260px 1fr; gap: var(--sp7); align-items: center;
+  background: linear-gradient(158deg, #182a4e, var(--paper-card)); border: 1px solid var(--line-strong);
+  border-radius: var(--radius); padding: var(--sp7); margin: var(--sp8) 0; }
+.founder-portrait { width: 260px; height: 320px; border-radius: var(--radius); overflow: hidden; flex: none;
+  box-shadow: var(--shadow-lg); background: var(--paper-inset); }
+.founder-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; display: block; }
+.founder-feature-text h2 { font-size: var(--t4); margin: 6px 0 var(--sp4); }
+.founder-feature-text p { color: var(--ink-soft); font-size: 1.04rem; }
+.founder-sig { font-family: var(--mono); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--gold-ink) !important; margin-top: var(--sp4); margin-bottom: 0; }
+@media (max-width: 700px) {
+  .founder-feature { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: var(--sp5); padding: var(--sp6); }
+  .founder-portrait { width: 230px; height: 290px; }
+}
 .founder { display: flex; align-items: center; gap: var(--sp4); background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--sp5); }
 .founder-avatar { position: relative; overflow: hidden; flex: none; width: 60px; height: 60px; border-radius: 50%;
   display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 1.3rem; color: #201603;

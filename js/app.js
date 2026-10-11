@@ -619,15 +619,20 @@
           <div class="photo"><img src="assets/about-2.jpg" alt="Students mapping out their high school plan" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=70'" /></div>
         </div>
 
-        <div class="pillars pillars-4 reveal-stagger">
+        <div class="pillars reveal-stagger">
           <div class="pillar">${ICONS.ui.compass}<h3>See the whole path</h3><p>Pick a field or take the quiz, and see how it connects: the classes, the activities, the colleges, and the careers at the end.</p></div>
           <div class="pillar">${ICONS.ui.map}<h3>Plan four years, not one</h3><p>Your roadmap lays out which courses to take each year, in the order high schools actually offer them.</p></div>
           <div class="pillar">${ICONS.ui.target}<h3>Change your mind anytime</h3><p>Picking a direction now doesn't lock you in. Switch fields, compare paths, and adjust as you figure out what you like.</p></div>
-          <div class="pillar pillar-founder">
-            <div class="founder-avatar"><img src="assets/marcus.png" alt="Marcus Trittenbass" loading="lazy" onerror="this.remove()" />MT</div>
-            <h3>Built by a student, for students</h3>
-            <p>I made Compass 9 because I wished I'd had it going into ninth grade. It's free, and written the way students actually talk.</p>
-            <div class="founder-credit">Marcus Trittenbass · Founder · Bellevue High School</div>
+        </div>
+
+        <div class="founder-feature reveal">
+          <div class="founder-portrait"><img src="assets/marcus.png" alt="Marcus Trittenbass, founder of Compass 9" loading="lazy" /></div>
+          <div class="founder-feature-text">
+            <span class="eyebrow">the founder</span>
+            <h2>Built by a student, for students.</h2>
+            <p>I made Compass 9 because I wished I'd had it going into ninth grade. It's free, and written the way students actually talk, with no jargon and nothing trying to sell you.</p>
+            <p>I went through course selection without a map. This is the tool I wanted: a way to see where today's classes actually lead, so picking a direction feels less like a shot in the dark.</p>
+            <p class="founder-sig">Marcus Trittenbass · Founder · Bellevue High School</p>
           </div>
         </div>
 
