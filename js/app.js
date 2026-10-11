@@ -610,7 +610,7 @@
       <section class="about viewfade">
         <div class="about-hero">
           <span class="eyebrow">about</span>
-          <h1>Start high school knowing where you're headed.</h1>
+          <h1>Start high school with a plan.</h1>
           <p class="lead">Most students pick their freshman classes without knowing what they lead to. Compass 9 shows you the path from the classes you take now to the majors and careers they open up, so you can start ninth grade with a direction instead of a guess.</p>
         </div>
 
@@ -620,9 +620,9 @@
         </div>
 
         <div class="pillars reveal-stagger">
-          <div class="pillar">${ICONS.ui.compass}<h3>See the whole path</h3><p>Pick a field or take the quiz, and see how it connects: the classes, the activities, the colleges, and the careers at the end.</p></div>
-          <div class="pillar">${ICONS.ui.map}<h3>Plan four years, not one</h3><p>Your roadmap lays out which courses to take each year, in the order high schools actually offer them.</p></div>
-          <div class="pillar">${ICONS.ui.target}<h3>Change your mind anytime</h3><p>Picking a direction now doesn't lock you in. Switch fields, compare paths, and adjust as you figure out what you like.</p></div>
+          <div class="pillar">${ICONS.ui.compass}<h3>See the whole path</h3><p>How classes, activities, colleges, and careers all connect.</p></div>
+          <div class="pillar">${ICONS.ui.map}<h3>Plan four years, not one</h3><p>Which courses to take each year, in the right order.</p></div>
+          <div class="pillar">${ICONS.ui.target}<h3>Change your mind anytime</h3><p>Nothing's locked in. Switch fields and adjust as you go.</p></div>
         </div>
 
         <div class="founder-feature reveal">
@@ -648,10 +648,10 @@
           <span class="eyebrow">where the numbers come from</span>
           <h2 style="font-size:var(--t4);margin-top:6px">Where the data comes from</h2>
           <div class="source-list">
-            <div class="source"><strong>Salaries &amp; hours</strong><span>U.S. Bureau of Labor Statistics, Occupational Employment &amp; Wage Statistics (national medians).</span></div>
-            <div class="source"><strong>AP sequencing</strong><span>Standard public-high-school course progressions; confirm exact prerequisites in your school's catalog.</span></div>
-            <div class="source"><strong>College strengths</strong><span>Program-reputation rankings across every field, a starting point, not a guarantee.</span></div>
-            <div class="source"><strong>SAT ranges</strong><span>Typical admitted-student ranges for related undergraduate programs.</span></div>
+            <div class="source"><strong>Salaries &amp; hours</strong><span>U.S. Bureau of Labor Statistics (national medians).</span></div>
+            <div class="source"><strong>AP sequencing</strong><span>Standard course order; confirm prerequisites with your school.</span></div>
+            <div class="source"><strong>College strengths</strong><span>Program-reputation rankings. A starting point, not a guarantee.</span></div>
+            <div class="source"><strong>SAT ranges</strong><span>Typical admitted-student ranges by program.</span></div>
           </div>
         </div>
 
