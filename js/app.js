@@ -577,10 +577,10 @@
      ===================================================================== */
   function renderHow() {
     const steps = [
-      { icon: ICONS.ui.quiz, img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=70", h: "We read interest and strength, not just interest.", p: "The quiz mixes RIASEC-style interest questions (\"which sounds more interesting?\") with strength questions (\"which assignment do you do best on?\"). Each answer adds points across the seven fields, so your top matches reflect both what you like and where you shine." },
-      { icon: ICONS.ui.salary, img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=70", h: "Every salary is real, from the government.", p: "Pay figures come from the U.S. Bureau of Labor Statistics: national medians, most recent available. We show ranges where BLS publishes them, and note that pay usually runs higher in big cities and tech hubs." },
-      { icon: ICONS.ui.map, img: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=600&q=70", h: "The roadmap respects real prerequisites.", p: "AP suggestions are sequenced the way high schools actually schedule them, you can't take AP Calc BC before AB, or AP Bio before Chemistry. The order is standard for most public high schools; exact prereqs should be confirmed against your school's catalog." },
-      { icon: ICONS.ui.cap, img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=70", h: "Colleges are matched by program reputation.", p: "For each field we rank strong undergraduate programs and show them in their own school colors. It's inspiration for where to aim, admissions depend on far more than one list." }
+      { icon: ICONS.ui.quiz, img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=70", h: "We read interest and strength, not just interest.", p: "The quiz mixes interest questions (\"which sounds more interesting?\") with strength questions (\"which do you do best on?\"), so your top matches reflect both what you like and where you shine." },
+      { icon: ICONS.ui.salary, img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=70", h: "Every salary is real, from the government.", p: "Pay figures come from the U.S. Bureau of Labor Statistics: national medians, most recent available. Real pay runs higher in big cities and tech hubs." },
+      { icon: ICONS.ui.map, img: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=600&q=70", h: "The roadmap respects real prerequisites.", p: "AP suggestions follow real prerequisite chains, you can't take Calc BC before AB, or AP Bio before Chemistry. The order is standard for most public high schools; confirm exact prereqs with your school." },
+      { icon: ICONS.ui.cap, img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=70", h: "Colleges are matched by program reputation.", p: "For each field we rank strong undergraduate programs by reputation. It's inspiration for where to aim, admissions depend on far more than one list." }
     ];
     app.innerHTML = `
       <section class="method viewfade">
@@ -631,7 +631,7 @@
             <span class="eyebrow">the founder</span>
             <h2>Built by a student, for students.</h2>
             <p>I made Compass 9 because I wished I'd had it going into ninth grade. It's free, and written the way students actually talk, with no jargon and nothing trying to sell you.</p>
-            <p>I went through course selection without a map. This is the tool I wanted: a way to see where today's classes actually lead, so picking a direction feels less like a shot in the dark.</p>
+            <p>I went through course selection without a map. This is the tool I wanted: a clear view of where today's classes actually lead.</p>
             <p class="founder-sig">Marcus Trittenbass · Founder · Bellevue High School</p>
           </div>
         </div>
@@ -645,8 +645,7 @@
         </div>
 
         <div class="reveal">
-          <span class="eyebrow">where the numbers come from</span>
-          <h2 style="font-size:var(--t4);margin-top:6px">Where the data comes from</h2>
+          <h2 style="font-size:var(--t4)">Sources</h2>
           <div class="source-list">
             <div class="source"><strong>Salaries &amp; hours</strong><span>U.S. Bureau of Labor Statistics (national medians).</span></div>
             <div class="source"><strong>AP sequencing</strong><span>Standard course order; confirm prerequisites with your school.</span></div>
