@@ -207,10 +207,10 @@ const LOGO_OVERRIDE = {
   clemson: "assets/logos/clemson.png",
   wsu: "assets/logos/wsu.png",
   washington: "assets/logos/washington.jpg",
-  syracuse: "assets/logos/syracuse.png",
+  syracuse: "assets/logos/syracuse.webp",
+  minnesota: "assets/logos/minnesota.png",
   arkansas: "https://icons.duckduckgo.com/ip3/uark.edu.ico",
-  uconn: "https://icons.duckduckgo.com/ip3/uconn.edu.ico",
-  minnesota: "https://icons.duckduckgo.com/ip3/umn.edu.ico"
+  uconn: "https://icons.duckduckgo.com/ip3/uconn.edu.ico"
 };
 function collegeLogo(c) {
   if (LOGO_OVERRIDE[c.id]) return LOGO_OVERRIDE[c.id];
