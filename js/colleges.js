@@ -28,8 +28,8 @@ const COLLEGES = [
   { id: "unc",        name: "UNC Chapel Hill",            short: "UNC",           mono: "NC",  city: "Chapel Hill, NC", c1: "#13294B", c2: "#4B9CD3", tx: "#4B9CD3", majors: { business: 92, medicine: 90, law: 88, social: 88 } },
   { id: "notredame",  name: "University of Notre Dame",   short: "Notre Dame",    mono: "ND",  city: "Notre Dame, IN",  c1: "#0C2340", c2: "#C99700", tx: "#C99700", majors: { business: 94, law: 88, arts: 80, social: 82 } },
   { id: "northwestern", name: "Northwestern University",  short: "Northwestern",  mono: "N",   city: "Evanston, IL",    c1: "#4E2A84", c2: "#ffffff", tx: "#fff", majors: { social: 92, law: 90, business: 90, medicine: 88, arts: 86 } },
-  { id: "washington", name: "University of Washington",   short: "UW",            mono: "W",   city: "Seattle, WA",     c1: "#4B2E83", c2: "#B7A57A", tx: "#fff", wa: true, majors: { cs: 94, medicine: 90, engineering: 88, business: 84, social: 84 } },
-  { id: "wsu",        name: "Washington State University", short: "Wash. State",  mono: "WS",  city: "Pullman, WA",     c1: "#981E32", c2: "#5E6A71", tx: "#fff", wa: true, majors: { engineering: 80, business: 78, social: 76, arts: 76 } },
+  { id: "washington", name: "University of Washington",   short: "UW",            mono: "UW",  city: "Seattle, WA",     c1: "#4B2E83", c2: "#B7A57A", tx: "#fff", wa: true, majors: { cs: 94, medicine: 90, engineering: 88, business: 84, social: 84 } },
+  { id: "wsu",        name: "Washington State University", short: "WSU",           mono: "WSU", city: "Pullman, WA",     c1: "#981E32", c2: "#5E6A71", tx: "#fff", wa: true, majors: { engineering: 80, business: 78, social: 76, arts: 76 } },
   { id: "gonzaga",    name: "Gonzaga University",         short: "Gonzaga",       mono: "GU",  city: "Spokane, WA",     c1: "#041E42", c2: "#C8102E", tx: "#fff", wa: true, majors: { business: 82, law: 80, medicine: 78 } },
   { id: "cincinnati", name: "University of Cincinnati",   short: "Cincinnati",    mono: "UC",  city: "Cincinnati, OH",  c1: "#E00122", c2: "#000000", tx: "#fff", majors: { arts: 96, engineering: 82, business: 78 } },
   { id: "syracuse",   name: "Syracuse University",        short: "Syracuse",      mono: "SU",  city: "Syracuse, NY",    c1: "#F76900", c2: "#000E54", tx: "#fff", majors: { arts: 90, social: 82, business: 80 } },
@@ -198,7 +198,11 @@ const COLLEGE_DOMAINS = {
 };
 
 /** Real logo URL for a college (falls back to its monogram if it fails to load). */
+/* Schools whose fetched favicon is too low-res or unclear; show the clean
+   school-colored monogram instead. */
+const LOGO_MONOGRAM_ONLY = new Set(["nyu", "clemson", "syracuse", "washington", "wsu", "arkansas", "uconn", "minnesota"]);
 function collegeLogo(c) {
+  if (LOGO_MONOGRAM_ONLY.has(c.id)) return "";
   const d = COLLEGE_DOMAINS[c.id];
   return d ? "https://www.google.com/s2/favicons?sz=128&domain=" + d : "";
 }

@@ -336,6 +336,13 @@
      ===================================================================== */
   const escAttr = (s) => esc(s).replace(/"/g, "&quot;");
 
+  // Crest contents: real logo when we have a clear one, else the colored monogram.
+  function crestInner(c) {
+    const logo = collegeLogo(c);
+    const img = logo ? `<img src="${logo}" alt="" loading="lazy" onerror="this.remove()" />` : "";
+    return `${img}<span class="crest-mono">${esc(c.mono)}</span>`;
+  }
+
   // Year-by-year plan: core courses for the field plus optional "boost" courses,
   // each labelled and hoverable for a plain-language description.
   function roadmapHTML(major) {
@@ -378,7 +385,7 @@
         <div class="tier-list">
           ${list.map((c) => `
             <div class="college" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}">
-              <div class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></div>
+              <div class="crest">${crestInner(c)}</div>
               <div class="college-info">
                 <div class="college-name">${esc(c.name)}</div>
                 <div class="college-meta">${esc(c.city)}</div>
@@ -530,7 +537,7 @@
       if (!list.length) return "";
       const cards = list.map((c) => `
         <div class="xcollege" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}">
-          <div class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></div>
+          <div class="crest">${crestInner(c)}</div>
           <div class="xcollege-body">
             <div class="xcollege-name">${esc(c.short)}</div>
             <div class="xcollege-meta">${esc(c.city)}</div>
@@ -555,7 +562,7 @@
     app.innerHTML = `
       <section class="explorer viewfade">
         <span class="eyebrow">the college board</span>
-        <h1>Colleges by how hard they are to get into.</h1>
+        <h1>Explore colleges by selectivity.</h1>
         <p class="lead">Every school grouped by acceptance rate, with what each group realistically takes. Filter by field to see who is strong where.</p>
 
         <div class="filter-bar">
@@ -685,7 +692,7 @@
     const fileNo = "PF-" + String(Math.abs(hashStr(major.key + career.id)) % 9000 + 1000);
     const dTiers = collegeTiers(major.key, 3);
     const pill = (c) =>
-      `<span class="d-college" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}"><span class="crest"><img src="${collegeLogo(c)}" alt="" loading="lazy" onerror="this.remove()" /><span class="crest-mono">${esc(c.mono)}</span></span>${esc(c.short)} <em>${c.acc}%</em></span>`;
+      `<span class="d-college" style="--c1:${c.c1};--c2:${c.c2};--tx:${c.tx}"><span class="crest">${crestInner(c)}</span>${esc(c.short)} <em>${c.acc}%</em></span>`;
     const collegePills = [
       ["Reach", dTiers.reach], ["Target", dTiers.target], ["Likely", dTiers.likely]
     ].filter(([, list]) => list.length).map(([label, list]) =>
