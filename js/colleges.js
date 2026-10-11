@@ -206,7 +206,8 @@ const LOGO_OVERRIDE = {
   nyu: "assets/logos/nyu.png",
   clemson: "assets/logos/clemson.png",
   wsu: "assets/logos/wsu.png",
-  washington: "https://icons.duckduckgo.com/ip3/washington.edu.ico",
+  washington: "assets/logos/washington.jpg",
+  syracuse: "assets/logos/syracuse.png",
   arkansas: "https://icons.duckduckgo.com/ip3/uark.edu.ico",
   uconn: "https://icons.duckduckgo.com/ip3/uconn.edu.ico",
   minnesota: "https://icons.duckduckgo.com/ip3/umn.edu.ico"
