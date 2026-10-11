@@ -198,11 +198,21 @@ const COLLEGE_DOMAINS = {
 };
 
 /** Real logo URL for a college (falls back to its monogram if it fails to load). */
-/* Schools whose fetched favicon is too low-res or unclear; show the clean
-   school-colored monogram instead. */
-const LOGO_MONOGRAM_ONLY = new Set(["nyu", "clemson", "syracuse", "washington", "wsu", "arkansas", "uconn", "minnesota"]);
+/* Some schools' default favicon comes back blurry; pull their real emblem from a
+   sharper source instead. (If any override fails, the crest falls back to the
+   monogram automatically via the <img> onerror handler.) */
+const LOGO_OVERRIDE = {
+  syracuse: "https://www.google.com/s2/favicons?sz=256&domain=syracuse.edu",
+  wsu: "https://www.google.com/s2/favicons?sz=256&domain=wsu.edu",
+  nyu: "https://icons.duckduckgo.com/ip3/nyu.edu.ico",
+  clemson: "https://icons.duckduckgo.com/ip3/clemson.edu.ico",
+  washington: "https://icons.duckduckgo.com/ip3/washington.edu.ico",
+  arkansas: "https://icons.duckduckgo.com/ip3/uark.edu.ico",
+  uconn: "https://icons.duckduckgo.com/ip3/uconn.edu.ico",
+  minnesota: "https://icons.duckduckgo.com/ip3/umn.edu.ico"
+};
 function collegeLogo(c) {
-  if (LOGO_MONOGRAM_ONLY.has(c.id)) return "";
+  if (LOGO_OVERRIDE[c.id]) return LOGO_OVERRIDE[c.id];
   const d = COLLEGE_DOMAINS[c.id];
   return d ? "https://www.google.com/s2/favicons?sz=128&domain=" + d : "";
 }
