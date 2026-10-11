@@ -610,52 +610,49 @@
       <section class="about viewfade">
         <div class="about-hero">
           <span class="eyebrow">about</span>
-          <h1>Every student deserves a counselor.</h1>
-          <p class="lead">Not every family can hire a $300-an-hour college consultant. Compass 9 puts the same kind of guidance in front of any student for free: clear, credible, and built for the way they actually think.</p>
+          <h1>Start high school knowing where you're headed.</h1>
+          <p class="lead">Most students pick their freshman classes without knowing what they lead to. Compass 9 shows you the path from the classes you take now to the majors and careers they open up, so you can start ninth grade with a direction instead of a guess.</p>
         </div>
 
         <div class="about-photos reveal">
           <div class="photo"><img src="assets/about-1.jpg" alt="College pennants on a wall" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1000&q=70'" /></div>
-          <div class="photo"><img src="assets/about-2.jpg" alt="Students planning their path with a counselor" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=70'" /></div>
+          <div class="photo"><img src="assets/about-2.jpg" alt="Students mapping out their high school plan" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=70'" /></div>
         </div>
 
-        <div class="pillars reveal-stagger">
-          <div class="pillar">${ICONS.ui.target}<h3>Made for students</h3><p>Written in plain, jargon-free language, without talking down. The goal is a plan you can act on right away.</p></div>
-          <div class="pillar">${ICONS.ui.salary}<h3>Grounded in real data</h3><p>Salaries from the Bureau of Labor Statistics, sequencing from real course catalogs, colleges ranked by program strength.</p></div>
-          <div class="pillar">${ICONS.ui.cap}<h3>Built around real classes</h3><p>Roadmaps follow the way high schools actually sequence courses, so the plan matches what students can really schedule.</p></div>
+        <div class="pillars pillars-4 reveal-stagger">
+          <div class="pillar">${ICONS.ui.compass}<h3>See the whole path</h3><p>Pick a field or take the quiz, and see how it connects: the classes, the activities, the colleges, and the careers at the end.</p></div>
+          <div class="pillar">${ICONS.ui.map}<h3>Plan four years, not one</h3><p>Your roadmap lays out which courses to take each year, in the order high schools actually offer them.</p></div>
+          <div class="pillar">${ICONS.ui.target}<h3>Change your mind anytime</h3><p>Picking a direction now doesn't lock you in. Switch fields, compare paths, and adjust as you figure out what you like.</p></div>
+          <div class="pillar pillar-founder">
+            <div class="founder-avatar"><img src="assets/marcus.png" alt="Marcus Trittenbass" loading="lazy" onerror="this.remove()" />MT</div>
+            <h3>Built by a student, for students</h3>
+            <p>I made Compass 9 because I wished I'd had it going into ninth grade. It's free, and written the way students actually talk.</p>
+            <div class="founder-credit">Marcus Trittenbass · Founder · Bellevue High School</div>
+          </div>
         </div>
 
         <div class="beams-band about-band reveal">
           <div class="bg-mount" data-bg="beams" data-intensity="medium"></div>
           <div class="beams-band-inner">
-            <h2>A plan beats a <span class="foil">panic</span> every time.</h2>
-            <p>Deciding early doesn't lock anyone in, it just replaces guesswork with a direction you can adjust. That head start is the whole point.</p>
+            <h2>A <span class="foil">direction</span> beats a guess.</h2>
+            <p>You don't need your whole life figured out entering high school. You just need a starting point, and a sense of what your choices lead to.</p>
           </div>
         </div>
 
         <div class="reveal">
           <span class="eyebrow">where the numbers come from</span>
-          <h2 style="font-size:var(--t4);margin-top:6px">Our sources</h2>
+          <h2 style="font-size:var(--t4);margin-top:6px">Where the data comes from</h2>
           <div class="source-list">
             <div class="source"><strong>Salaries &amp; hours</strong><span>U.S. Bureau of Labor Statistics, Occupational Employment &amp; Wage Statistics (national medians).</span></div>
             <div class="source"><strong>AP sequencing</strong><span>Standard public-high-school course progressions; confirm exact prerequisites in your school's catalog.</span></div>
-            <div class="source"><strong>College strengths</strong><span>Program-reputation rankings across the seven fields, a starting point, not a guarantee.</span></div>
+            <div class="source"><strong>College strengths</strong><span>Program-reputation rankings across every field, a starting point, not a guarantee.</span></div>
             <div class="source"><strong>SAT ranges</strong><span>Typical admitted-student ranges for related undergraduate programs.</span></div>
           </div>
         </div>
 
-        <div class="reveal" style="margin-top:var(--sp8)">
-          <span class="eyebrow">the founder</span>
-          <h2 style="font-size:var(--t4);margin-top:6px">Built by a student who wished this existed.</h2>
-          <p class="lead">I went through course selection without a map. Compass 9 is the tool I wish I'd had starting high school.</p>
-          <div class="founders founders-solo">
-            <div class="founder"><div class="founder-avatar"><img src="assets/marcus.png" alt="Marcus Trittenbass" loading="lazy" onerror="this.remove()" />MT</div><div><div class="founder-name">Marcus Trittenbass</div><div class="founder-role">Founder · Bellevue High School</div></div></div>
-          </div>
-        </div>
-
         <div class="hub-footer-ctas" style="margin-top:var(--sp7)">
-          <button class="btn btn-gold" data-go="#/quiz">Start the quiz</button>
-          <button class="btn btn-ghost" data-go="#/how">See the method →</button>
+          <button class="btn btn-gold" data-go="#/quiz">Take the quiz</button>
+          <button class="btn btn-ghost" data-go="#/fields">Browse fields →</button>
         </div>
       </section>`;
   }

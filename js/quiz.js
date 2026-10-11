@@ -19,7 +19,7 @@ const QUIZ_QUESTIONS = [
     options: [
       { text: "Building or fixing something with your hands", scores: { engineering: 3, cs: 1 } },
       { text: "Reading about a real court case or a big debate in the news", scores: { law: 3, social: 1 } },
-      { text: "Sketching, designing, or editing videos and photos", scores: { arts: 3 } },
+      { text: "Sketching, designing, or editing videos and photos", scores: { arts: 3, media: 1 } },
       { text: "Figuring out how the human body works", scores: { medicine: 3 } },
       { text: "Starting a small business or selling something", scores: { business: 3 } },
       { text: "Solving a tricky logic puzzle or coding challenge", scores: { cs: 3, engineering: 1 } }
@@ -34,7 +34,7 @@ const QUIZ_QUESTIONS = [
       { text: "Persuasive essays or debates", scores: { law: 3, social: 1 } },
       { text: "Science labs and experiments", scores: { medicine: 2, engineering: 2 } },
       { text: "Creative projects (art, design, video)", scores: { arts: 3 } },
-      { text: "Group presentations or pitching an idea", scores: { business: 2, social: 1 } }
+      { text: "Group presentations or pitching an idea", scores: { business: 2, social: 1, media: 1 } }
     ]
   },
   {
@@ -113,7 +113,7 @@ const QUIZ_QUESTIONS = [
     text: "Which are you naturally better at?",
     options: [
       { text: "Numbers and logic", scores: { cs: 2, engineering: 2, business: 1 } },
-      { text: "Words and argument", scores: { law: 2, social: 1 } },
+      { text: "Words and argument", scores: { law: 2, social: 1, media: 1 } },
       { text: "Visuals and creativity", scores: { arts: 3 } },
       { text: "Understanding how people feel", scores: { medicine: 1, social: 2 } }
     ]
@@ -129,7 +129,7 @@ const QUIZ_QUESTIONS = [
       { text: "Plan a marketing campaign for a new product", scores: { business: 3 } },
       { text: "Argue a case in front of a jury", scores: { law: 3 } },
       { text: "Study why people behave the way they do", scores: { social: 3 } },
-      { text: "Design a brand or poster that grabs attention", scores: { arts: 3 } }
+      { text: "Design a brand or poster that grabs attention", scores: { arts: 2, media: 2 } }
     ]
   },
   {
@@ -152,33 +152,9 @@ const QUIZ_QUESTIONS = [
       { text: "\"Breakthrough treatment for a disease\"", scores: { medicine: 3 } },
       { text: "\"Startup founder's billion-dollar idea\"", scores: { business: 3 } },
       { text: "\"Supreme Court makes a landmark ruling\"", scores: { law: 3 } },
-      { text: "\"How social media affects the teen brain\"", scores: { social: 3 } },
+      { text: "\"How social media affects the teen brain\"", scores: { social: 3, media: 1 } },
       { text: "\"Inside the design of a hit video game\"", scores: { arts: 2, cs: 1 } },
       { text: "\"Engineers build a record-breaking rocket\"", scores: { engineering: 3 } }
-    ]
-  },
-  {
-    id: "q13",
-    type: "interest",
-    text: "Which of these would you enjoy most?",
-    options: [
-      { text: "Explaining a tricky idea until it finally clicks for someone", scores: { social: 2, media: 1 } },
-      { text: "Making a promo video or running a brand's social media", scores: { media: 3, arts: 1 } },
-      { text: "Reporting the real story behind big news", scores: { media: 3, law: 1 } },
-      { text: "Coaching or mentoring younger students", scores: { social: 3 } },
-      { text: "Designing a campaign that gets everyone talking", scores: { media: 2, business: 2 } }
-    ]
-  },
-  {
-    id: "q14",
-    type: "strength",
-    text: "Among your friends, you're the one who...",
-    options: [
-      { text: "Explains the homework so everyone gets it", scores: { social: 2, media: 1 } },
-      { text: "Makes the posts and videos everyone shares", scores: { media: 3 } },
-      { text: "Wins every argument", scores: { law: 2, media: 1 } },
-      { text: "Organizes the whole group project", scores: { business: 3 } },
-      { text: "Comes up with the creative ideas", scores: { arts: 2, media: 1 } }
     ]
   }
 ];

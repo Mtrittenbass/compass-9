@@ -275,6 +275,9 @@ a { color: var(--blue-ink); }
 /* founders */
 .founders { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp4); margin-top: var(--sp5); }
 .founders-solo { grid-template-columns: 1fr; max-width: 440px; }
+.pillars-4 { grid-template-columns: repeat(2, 1fr); }
+.pillar-founder .founder-avatar { margin-bottom: var(--sp3); width: 54px; height: 54px; font-size: 1.15rem; }
+.founder-credit { margin-top: var(--sp3); font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold-ink); }
 .founder { display: flex; align-items: center; gap: var(--sp4); background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--sp5); }
 .founder-avatar { position: relative; overflow: hidden; flex: none; width: 60px; height: 60px; border-radius: 50%;
   display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 1.3rem; color: #201603;
